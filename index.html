@@ -3,945 +3,1728 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wireless Communications — Complete Course Summary</title>
+<title>Wireless Communications — Expert Summary</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
-:root{--bg:#0a0c12;--surface:#111420;--surface2:#181d2e;--border:#252a3f;--text:#dde3f5;--muted:#6b749a;--bright:#f0f4ff;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;}
-header{background:linear-gradient(135deg,#0d1020,#111828);border-bottom:1px solid var(--border);padding:1.4rem 2rem;display:flex;align-items:center;gap:1.2rem;position:sticky;top:0;z-index:100;}
-.logo{width:44px;height:44px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
-header h1{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--bright);}
-header p{font-size:.76rem;color:var(--muted);margin-top:.1rem;}
-.badge{margin-left:auto;flex-shrink:0;background:rgba(14,165,233,.13);border:1px solid rgba(14,165,233,.35);color:#38bdf8;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:.3rem .75rem;border-radius:20px;}
-.wrapper{display:flex;min-height:calc(100vh - 70px);}
-.sidebar{width:235px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:1rem 0;position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
-.sidebar::-webkit-scrollbar{width:4px;}
-.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
-.nav-label{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);padding:.4rem 1.1rem .2rem;margin-top:.6rem;}
-.nav-item{display:flex;align-items:center;gap:.55rem;padding:.5rem 1.1rem;cursor:pointer;font-size:.8rem;font-weight:500;color:var(--muted);border-left:2px solid transparent;transition:all .18s;}
-.nav-item:hover{color:var(--text);background:rgba(255,255,255,.03);}
-.nav-item.active{color:var(--bright);border-left-color:var(--ch-accent);background:linear-gradient(90deg,rgba(var(--ch-rgb),.12),transparent);font-weight:600;}
-.nav-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:var(--ch-accent);}
-.main{flex:1;min-width:0;padding:1.8rem 2.4rem 4rem;}
-.chapter{display:none;}
-.chapter.active{display:block;}
-.ch-header{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem;margin-bottom:1.6rem;border-radius:12px;background:linear-gradient(135deg,rgba(var(--ch-rgb),.11),var(--surface2) 60%);border:1px solid rgba(var(--ch-rgb),.24);}
-.ch-icon{width:48px;height:48px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,rgba(var(--ch-rgb),.9),rgba(var(--ch-rgb),.55));display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
-.ch-header h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--bright);}
-.ch-header .ch-sub{font-size:.78rem;color:var(--muted);margin-top:.2rem;}
-.ch-header .ch-obj{font-size:.8rem;color:#b0bdd6;margin-top:.5rem;line-height:1.6;}
-.sec{font-size:.69rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--ch-accent);margin:1.7rem 0 .72rem;display:flex;align-items:center;gap:.55rem;}
-.sec::after{content:'';flex:1;height:1px;background:rgba(var(--ch-rgb),.2);}
-.grid{display:grid;gap:.82rem;margin-bottom:.9rem;}
-.g2{grid-template-columns:repeat(2,1fr);}
-.g3{grid-template-columns:repeat(3,1fr);}
-.g4{grid-template-columns:repeat(4,1fr);}
-@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:768px){
-  header { position: relative; padding: 1.2rem; flex-wrap: wrap; gap: 0.8rem; }
-  header h1 { font-size: 1rem; }
-  .badge { margin-left: 0; margin-top: 0.5rem; }
-  .wrapper { flex-direction: column; }
-  .sidebar { width: 100%; height: auto; position: sticky; top: 0; z-index: 101; display: flex; flex-direction: row; padding: 0; border-right: none; border-bottom: 1px solid var(--border); overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; background: rgba(17, 20, 32, 0.95); backdrop-filter: blur(8px); }
-  .sidebar::-webkit-scrollbar { display: none; }
-  .nav-label { display: none; }
-  .nav-item { border-left: none; border-bottom: 2px solid transparent; padding: 0.8rem 1.2rem; flex-shrink: 0; }
-  .nav-item.active { border-bottom-color: var(--ch-accent); background: linear-gradient(0deg, rgba(var(--ch-rgb), .12), transparent); }
-  .main { padding: 1.2rem 1rem 3rem; }
-  .ch-header { flex-direction: column; padding: 1.2rem; gap: 0.8rem; }
-  .ch-icon { width: 42px; height: 42px; font-size: 1.1rem; }
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap');
+
+:root {
+  --bg: #060810;
+  --surface: #0c0f1a;
+  --surface2: #111525;
+  --surface3: #16192a;
+  --border: #1e2235;
+  --border2: #252a40;
+  --text: #c8d4f0;
+  --muted: #5a647a;
+  --bright: #eef2ff;
+  --dim: #8896b0;
 }
-@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr;}}
-.card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;transition:border-color .2s,transform .15s;}
-.card:hover{border-color:var(--ch-accent);transform:translateY(-2px);}
-.card-title{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ch-accent);margin-bottom:.62rem;}
-.card ul{list-style:none;}
-.card ul li{font-size:.81rem;color:#b0bdd6;padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.52;display:flex;gap:.45rem;align-items:flex-start;}
-.card ul li:last-child{border-bottom:none;}
-.card ul li::before{content:"›";color:var(--ch-accent);font-weight:700;flex-shrink:0;margin-top:.05rem;}
-.card ul li strong{color:#dde3f5;font-weight:600;}
-.tbl-wrap{overflow-x:auto;margin:.45rem 0 1rem;}
-table{width:100%;border-collapse:collapse;font-size:.8rem;}
-thead th{background:rgba(var(--ch-rgb),.14);color:var(--ch-accent);padding:.58rem .85rem;text-align:left;font-weight:700;border-bottom:2px solid rgba(var(--ch-rgb),.38);}
-tbody td{padding:.5rem .85rem;border-bottom:1px solid var(--border);color:#b0bdd6;vertical-align:top;}
-tbody tr:hover td{background:var(--surface2);}
-tbody td strong{color:#dde3f5;}
-.mono{font-family:'DM Mono',monospace;font-size:.78rem;background:#080c10;border:1px solid var(--border);border-left:3px solid var(--ch-accent);border-radius:6px;padding:.7rem 1rem;margin:.4rem 0;color:#a5f3fc;white-space:pre-wrap;}
-.formula{font-family:'DM Mono',monospace;font-size:.85rem;background:rgba(var(--ch-rgb),.08);border:1px solid rgba(var(--ch-rgb),.25);border-radius:8px;padding:.8rem 1.1rem;margin:.5rem 0;color:#f0f4ff;text-align:center;}
-.keybox{background:linear-gradient(135deg,rgba(var(--ch-rgb),.1),var(--surface2));border:1px solid rgba(var(--ch-rgb),.28);border-radius:10px;padding:1rem;margin:.9rem 0;}
-.keybox .kt{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ch-accent);margin-bottom:.42rem;}
-.keybox p{font-size:.81rem;color:#b0bdd6;line-height:1.7;}
-.keybox ul{list-style:none;}
-.keybox ul li{display:flex;gap:.5rem;padding:.19rem 0;font-size:.81rem;color:#b0bdd6;line-height:1.52;}
-.keybox ul li::before{content:"✦";color:var(--ch-accent);flex-shrink:0;font-size:.67rem;margin-top:.28rem;}
-.keybox ul li strong{color:#dde3f5;}
-.algo{background:#0a0e1a;border:1px solid var(--border);border-left:3px solid var(--ch-accent);border-radius:8px;padding:.9rem 1.1rem;margin:.5rem 0;font-size:.8rem;color:#cbd5e1;line-height:1.8;}
-.algo .algo-title{font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--ch-accent);margin-bottom:.5rem;letter-spacing:.8px;}
-.algo strong{color:#f0f4ff;}
-.step{display:flex;gap:.8rem;align-items:flex-start;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.04);}
-.step:last-child{border-bottom:none;}
-.step-num{background:var(--ch-accent);color:#000;font-size:.68rem;font-weight:800;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem;}
-.step p{font-size:.81rem;color:#b0bdd6;line-height:1.55;}
-.step p strong{color:#dde3f5;}
-.ch1{--ch-accent:#60a5fa;--ch-rgb:96,165,250;}
-.ch2{--ch-accent:#34d399;--ch-rgb:52,211,153;}
-.ch3{--ch-accent:#fbbf24;--ch-rgb:251,191,36;}
-.ch4{--ch-accent:#a78bfa;--ch-rgb:167,139,250;}
-.ch5{--ch-accent:#f472b6;--ch-rgb:244,114,182;}
-.ch6{--ch-accent:#22d3ee;--ch-rgb:34,211,238;}
-.ch7{--ch-accent:#fb923c;--ch-rgb:251,146,60;}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+header {
+  background: linear-gradient(135deg, #070a15, #0e1428);
+  border-bottom: 1px solid var(--border);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.logo { font-size: 1.6rem; }
+header h1 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bright); }
+header p { font-size: .72rem; color: var(--muted); margin-top: .1rem; }
+.hbadge {
+  margin-left: auto;
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: .28rem .8rem;
+  border-radius: 20px;
+  background: rgba(var(--ch-rgb),.13);
+  border: 1px solid rgba(var(--ch-rgb),.35);
+  color: var(--ch-col);
+  --ch-rgb: 99,179,237;
+  --ch-col: #63b3ed;
+}
+
+/* ── LAYOUT ── */
+.wrapper { display: flex; min-height: calc(100vh - 58px); }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: .8rem 0;
+  position: sticky;
+  top: 58px;
+  height: calc(100vh - 58px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+.nav-section { font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: var(--muted); padding: .6rem 1rem .2rem; margin-top: .4rem; }
+
+.nav-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  padding: .42rem 1rem;
+  cursor: pointer;
+  font-size: .76rem;
+  color: var(--muted);
+  border-left: 2px solid transparent;
+  transition: all .15s;
+  line-height: 1.4;
+}
+.nav-item:hover { color: var(--dim); background: rgba(255,255,255,.02); }
+.nav-item.active { color: var(--bright); border-left-color: var(--acc); background: linear-gradient(90deg, rgba(var(--acc-rgb),.1), transparent); font-weight: 600; }
+.nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); flex-shrink: 0; margin-top: 5px; }
+.nav-num { font-size: .6rem; font-weight: 800; color: var(--acc); opacity: .7; flex-shrink: 0; margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+
+/* ── MAIN ── */
+.main { flex: 1; min-width: 0; padding: 2rem 2.6rem 5rem; }
+
+.chapter { display: none; }
+.chapter.active { display: block; }
+
+/* ── CHAPTER HEADER ── */
+.ch-head {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(var(--acc-rgb),.1) 0%, var(--surface2) 55%);
+  border: 1px solid rgba(var(--acc-rgb),.2);
+  position: relative;
+  overflow: hidden;
+}
+.ch-head::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--acc-rgb),.06), transparent 70%);
+}
+.ch-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(var(--acc-rgb),.85), rgba(var(--acc-rgb),.4));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.ch-head h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--bright); margin-bottom: .3rem; }
+.ch-head .sub { font-size: .75rem; color: var(--muted); line-height: 1.5; }
+.ch-head .obj { font-size: .79rem; color: var(--dim); margin-top: .5rem; line-height: 1.6; }
+.obj-tag { display: inline-block; background: rgba(var(--acc-rgb),.12); border: 1px solid rgba(var(--acc-rgb),.25); color: var(--acc-col); font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; padding: .18rem .5rem; border-radius: 4px; margin-right: .3rem; margin-top: .3rem; }
+
+/* ── SECTION DIVIDERS ── */
+.sec {
+  font-size: .66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--acc-col);
+  margin: 2rem 0 .85rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.sec::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(var(--acc-rgb),.3), transparent); }
+
+/* ── GRIDS ── */
+.grid { display: grid; gap: .9rem; margin-bottom: 1rem; }
+.g2 { grid-template-columns: repeat(2,1fr); }
+.g3 { grid-template-columns: repeat(3,1fr); }
+.g4 { grid-template-columns: repeat(4,1fr); }
+@media(max-width:1100px) { .g4 { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:900px)  { .g3 { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:680px)  { .g2,.g3,.g4 { grid-template-columns: 1fr; } }
+
+/* ── CARDS ── */
+.card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  transition: border-color .2s, transform .15s;
+}
+.card:hover { border-color: rgba(var(--acc-rgb),.4); transform: translateY(-1px); }
+.card-title {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  color: var(--acc-col);
+  margin-bottom: .7rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.card ul { list-style: none; }
+.card ul li {
+  font-size: .79rem;
+  color: var(--dim);
+  padding: .22rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  line-height: 1.55;
+  display: flex;
+  gap: .4rem;
+  align-items: flex-start;
+}
+.card ul li:last-child { border-bottom: none; }
+.card ul li::before { content: "›"; color: var(--acc-col); font-weight: 700; flex-shrink: 0; opacity: .7; }
+.card ul li strong { color: var(--bright); font-weight: 600; }
+.card ul li em { color: var(--acc-col); font-style: normal; font-weight: 600; }
+
+/* ── TABLES ── */
+.tbl-wrap { overflow-x: auto; margin: .5rem 0 1.2rem; border-radius: 8px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: .79rem; }
+thead th {
+  background: rgba(var(--acc-rgb),.1);
+  color: var(--acc-col);
+  padding: .55rem .9rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  border-bottom: 2px solid rgba(var(--acc-rgb),.25);
+}
+tbody td { padding: .48rem .9rem; border-bottom: 1px solid var(--border); color: var(--dim); vertical-align: top; line-height: 1.5; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--surface3); }
+tbody td strong { color: var(--bright); font-weight: 600; }
+tbody td em { color: var(--acc-col); font-style: normal; }
+
+/* ── FORMULA BOX ── */
+.formula {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .82rem;
+  background: rgba(var(--acc-rgb),.06);
+  border: 1px solid rgba(var(--acc-rgb),.22);
+  border-radius: 8px;
+  padding: .85rem 1.2rem;
+  margin: .5rem 0;
+  color: var(--bright);
+  text-align: center;
+  line-height: 1.9;
+}
+.formula .f-label { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--acc-col); margin-bottom: .3rem; display: block; }
+.formula .f-unit { font-size: .7rem; color: var(--muted); }
+
+/* ── MONO / CODE ── */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .76rem;
+  background: #060a10;
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--acc-col);
+  border-radius: 6px;
+  padding: .7rem 1rem;
+  margin: .4rem 0;
+  color: #7dd3fc;
+  white-space: pre-wrap;
+  line-height: 1.75;
+}
+
+/* ── KEYBOX (insight) ── */
+.insight {
+  background: linear-gradient(135deg, rgba(var(--acc-rgb),.08), var(--surface2));
+  border: 1px solid rgba(var(--acc-rgb),.25);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+.insight .i-title {
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--acc-col);
+  margin-bottom: .45rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.insight p { font-size: .81rem; color: var(--dim); line-height: 1.75; }
+.insight p + p { margin-top: .5rem; }
+.insight ul { list-style: none; margin-top: .4rem; }
+.insight ul li { font-size: .8rem; color: var(--dim); padding: .16rem 0; display: flex; gap: .5rem; line-height: 1.5; }
+.insight ul li::before { content: "✦"; color: var(--acc-col); font-size: .6rem; margin-top: .3rem; flex-shrink: 0; }
+.insight ul li strong { color: var(--bright); }
+
+/* ── PITFALL ── */
+.pitfall {
+  background: rgba(248,113,113,.06);
+  border: 1px solid rgba(248,113,113,.25);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  margin: .6rem 0;
+}
+.pitfall .p-title { font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: #f87171; margin-bottom: .3rem; }
+.pitfall p { font-size: .79rem; color: #c4a0a0; line-height: 1.65; }
+
+/* ── STEP-BY-STEP ── */
+.steps { margin: .5rem 0; }
+.step { display: flex; gap: .8rem; align-items: flex-start; padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+.step:last-child { border-bottom: none; }
+.step-n {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--acc-col);
+  color: #000;
+  font-size: .65rem;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: .12rem;
+}
+.step p { font-size: .8rem; color: var(--dim); line-height: 1.6; }
+.step p strong { color: var(--bright); }
+
+/* ── CHAPTER ACCENT CLASSES ── */
+.ch1 { --acc-rgb: 96,165,250;  --acc-col: #60a5fa; }
+.ch2 { --acc-rgb: 52,211,153;  --acc-col: #34d399; }
+.ch3 { --acc-rgb: 251,191,36;  --acc-col: #fbbf24; }
+.ch4 { --acc-rgb: 167,139,250; --acc-col: #a78bfa; }
+.ch5 { --acc-rgb: 244,114,182; --acc-col: #f472b6; }
+.ch6 { --acc-rgb: 34,211,238;  --acc-col: #22d3ee; }
+.ch7 { --acc-rgb: 251,146,60;  --acc-col: #fb923c; }
+.ch8 { --acc-rgb: 163,230,53;  --acc-col: #a3e635; }
+
+/* ── BADGE INLINE ── */
+.badge-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  background: rgba(var(--acc-rgb),.1);
+  border: 1px solid rgba(var(--acc-rgb),.25);
+  color: var(--acc-col);
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  padding: .15rem .45rem;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+/* ── CONNECT BOX ── */
+.connect {
+  display: flex;
+  gap: .5rem;
+  align-items: flex-start;
+  background: rgba(99,102,241,.07);
+  border: 1px solid rgba(99,102,241,.2);
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  margin: .7rem 0;
+  font-size: .78rem;
+  color: #818cf8;
+}
+.connect::before { content: "⟳"; font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+
+/* ── RESPONSIVE DESIGN FOR PHONES ── */
+@media (max-width: 820px) {
+  header { flex-direction: column; align-items: flex-start; padding: 1.2rem 1.4rem; gap: 0.8rem; }
+  .hbadge { margin-left: 0; align-self: flex-start; }
+  .wrapper { flex-direction: column; }
+  
+  .sidebar { 
+    width: 100%; height: auto; position: sticky; top: 0; z-index: 201;
+    display: flex; flex-direction: row; padding: 0; border-right: none; overflow-x: auto;
+    border-bottom: 1px solid var(--border); background: rgba(12, 15, 26, 0.95); backdrop-filter: blur(10px);
+    -webkit-overflow-scrolling: touch;
+  }
+  .sidebar::-webkit-scrollbar { display: none; }
+  
+  .nav-section { display: none; }
+  .nav-item { border-left: none; border-bottom: 2px solid transparent; padding: 0.8rem 1.2rem; flex-shrink: 0; white-space: nowrap; }
+  .nav-item.active { border-bottom-color: var(--acc-col); background: linear-gradient(0deg, rgba(var(--acc-rgb),.15), transparent); }
+  
+  .main { padding: 1.5rem 1rem 4rem; }
+  .ch-head { flex-direction: column; padding: 1.2rem; gap: 1rem; }
+  .ch-head::before { display: none; }
+  .ch-icon { width: 44px; height: 44px; font-size: 1.2rem; }
+  .tbl-wrap { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; border-radius: 0; border-left: none; border-right: none; }
+}
+
+@media (max-width: 480px) {
+  .card { padding: 0.9rem; }
+  .formula { padding: 0.8rem; font-size: 0.75rem; }
+}
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">📡</div>
   <div>
-    <h1>Wireless Communications</h1>
-    <p>Dr. Ahmed Roumane · 2024/2025 · 390 pages · 7 chapters</p>
+    <h1>Wireless Communications — Expert Course Summary</h1>
+    <p>Dr. Ahmed Roumane · ENSTTIC 2024/2025 · 390 pages · 8 modules · Deep pedagogical synthesis</p>
   </div>
-  <div class="badge">Complete Summary</div>
+  <div class="hbadge">Senior-Level</div>
 </header>
 
 <div class="wrapper">
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
 <nav class="sidebar">
-  <div class="nav-label">Chapters</div>
-  <div class="nav-item ch1 active" style="--ch-accent:#60a5fa;--ch-rgb:96,165,250" onclick="show('ch1',this)"><span class="nav-dot" style="background:#60a5fa"></span>1. Introduction & Evolution</div>
-  <div class="nav-item ch2" style="--ch-accent:#34d399;--ch-rgb:52,211,153" onclick="show('ch2',this)"><span class="nav-dot" style="background:#34d399"></span>2. Technical Challenges</div>
-  <div class="nav-item ch3" style="--ch-accent:#fbbf24;--ch-rgb:251,191,36" onclick="show('ch3',this)"><span class="nav-dot" style="background:#fbbf24"></span>3. System Design & Link Budget</div>
-  <div class="nav-item ch4" style="--ch-accent:#a78bfa;--ch-rgb:167,139,250" onclick="show('ch4',this)"><span class="nav-dot" style="background:#a78bfa"></span>4. Propagation Effects</div>
-  <div class="nav-item ch5" style="--ch-accent:#f472b6;--ch-rgb:244,114,182" onclick="show('ch5',this)"><span class="nav-dot" style="background:#f472b6"></span>5. Statistical Modeling</div>
-  <div class="nav-item ch6" style="--ch-accent:#22d3ee;--ch-rgb:34,211,238" onclick="show('ch6',this)"><span class="nav-dot" style="background:#22d3ee"></span>6. Wideband Channels</div>
-  <div class="nav-item ch7" style="--ch-accent:#fb923c;--ch-rgb:251,146,60" onclick="show('ch7',this)"><span class="nav-dot" style="background:#fb923c"></span>7. Channel Models</div>
+  <div class="nav-section">Modules</div>
+
+  <div class="nav-item ch1 active" style="--acc:var(--ch1-acc);--acc-rgb:96,165,250" onclick="show('ch1',this)">
+    <span class="nav-dot" style="background:#60a5fa"></span>
+    <span><span style="color:#60a5fa;font-size:.62rem;font-family:'JetBrains Mono',monospace">01 </span>Introduction & Architecture</span>
+  </div>
+  <div class="nav-item ch2" style="--acc:var(--ch2-acc);--acc-rgb:52,211,153" onclick="show('ch2',this)">
+    <span class="nav-dot" style="background:#34d399"></span>
+    <span><span style="color:#34d399;font-size:.62rem;font-family:'JetBrains Mono',monospace">02 </span>Technical Challenges</span>
+  </div>
+  <div class="nav-item ch3" style="--acc:var(--ch3-acc);--acc-rgb:251,191,36" onclick="show('ch3',this)">
+    <span class="nav-dot" style="background:#fbbf24"></span>
+    <span><span style="color:#fbbf24;font-size:.62rem;font-family:'JetBrains Mono',monospace">03 </span>System Design & Link Budget</span>
+  </div>
+  <div class="nav-item ch4" style="--acc:var(--ch4-acc);--acc-rgb:167,139,250" onclick="show('ch4',this)">
+    <span class="nav-dot" style="background:#a78bfa"></span>
+    <span><span style="color:#a78bfa;font-size:.62rem;font-family:'JetBrains Mono',monospace">04 </span>Propagation Mechanisms</span>
+  </div>
+  <div class="nav-item ch5" style="--acc:var(--ch5-acc);--acc-rgb:244,114,182" onclick="show('ch5',this)">
+    <span class="nav-dot" style="background:#f472b6"></span>
+    <span><span style="color:#f472b6;font-size:.62rem;font-family:'JetBrains Mono',monospace">05 </span>Statistical Channel Modeling</span>
+  </div>
+  <div class="nav-item ch6" style="--acc:var(--ch6-acc);--acc-rgb:34,211,238" onclick="show('ch6',this)">
+    <span class="nav-dot" style="background:#22d3ee"></span>
+    <span><span style="color:#22d3ee;font-size:.62rem;font-family:'JetBrains Mono',monospace">06 </span>Wideband Channel Theory</span>
+  </div>
+  <div class="nav-item ch7" style="--acc:var(--ch7-acc);--acc-rgb:251,146,60" onclick="show('ch7',this)">
+    <span class="nav-dot" style="background:#fb923c"></span>
+    <span><span style="color:#fb923c;font-size:.62rem;font-family:'JetBrains Mono',monospace">07 </span>Channel Models & Standards</span>
+  </div>
+  <div class="nav-item ch8" style="--acc:var(--ch8-acc);--acc-rgb:163,230,53" onclick="show('ch8',this)">
+    <span class="nav-dot" style="background:#a3e635"></span>
+    <span><span style="color:#a3e635;font-size:.62rem;font-family:'JetBrains Mono',monospace">08 </span>OFDM · CDMA · UWB</span>
+  </div>
 </nav>
 
+<!-- ══════════════ MAIN ══════════════ -->
 <main class="main">
 
-<!-- ══════════════════════════════════════
-     CH1 — Introduction & Evolution
-     ══════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════
+     CH1 — Introduction & Architecture
+═══════════════════════════════════════════════ -->
 <div id="ch1" class="chapter ch1 active">
-  <div class="ch-header">
-    <div class="ch-icon">📡</div>
+  <div class="ch-head">
+    <div class="ch-icon">🏛️</div>
     <div>
-      <h2>Chapter 1 — Introduction to Wireless Communication Systems</h2>
-      <div class="ch-sub">Historical evolution · 1G→5G · Cellular principle · Frequency reuse · System architecture · Key requirements · Wireless challenges</div>
-      <div class="ch-obj">🎯 Understand wireless system fundamentals · Trace cellular evolution from 1946 to 5G · Identify main wireless impairments and design constraints</div>
+      <h2>Module 1 — Introduction & System Architecture</h2>
+      <div class="sub">Historical evolution · 1G→6G roadmap · Cellular principle · Frequency reuse · System architecture · Satellite & UAV · Trunking · PANs</div>
+      <div class="obj">
+        <span class="obj-tag">Understand</span> the evolution of wireless generations and the cellular principle
+        <span class="obj-tag">Identify</span> the fundamental architecture components (UE, BS, MSC)
+        <span class="obj-tag">Explain</span> why frequency reuse and handover are necessary
+      </div>
     </div>
   </div>
 
-  <div class="sec">Historical Evolution of Wireless Communications</div>
+  <div class="sec">The Big Picture — Why Wireless?</div>
+  <div class="insight">
+    <div class="i-title">📖 The Fundamental Problem</div>
+    <p>Wireless communication must solve one deceptively hard problem: allow millions of users to share the same physical medium (electromagnetic spectrum) simultaneously, while moving, across a channel that randomly attenuates, delays, and distorts every transmitted signal. Everything in this course is a consequence of this fundamental challenge.</p>
+  </div>
+
+  <div class="sec">Historical Evolution — The Generations</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Generation</th><th>Era</th><th>Key Standard</th><th>Technology</th><th>Data Rate</th><th>Key Innovation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pre-cellular</strong></td><td>1946</td><td>MTS</td><td>Analog, 6 channels</td><td>Voice only</td><td>First mobile telephone (St. Louis, USA)</td></tr>
+        <tr><td><strong>1G</strong></td><td>1979–1990s</td><td>AMPS, NMT</td><td>Analog FM</td><td>Voice only</td><td>Cellular concept, frequency reuse</td></tr>
+        <tr><td><strong>2G</strong></td><td>1990s</td><td>GSM, IS-95</td><td>Digital (TDMA/CDMA)</td><td>64 kbit/s</td><td>Digital, SMS, SIM card</td></tr>
+        <tr><td><strong>3G</strong></td><td>2001</td><td>UMTS (W-CDMA), CDMA2000</td><td>CDMA-based</td><td>144 kbit/s–2 Mbit/s</td><td>Mobile internet, video calls</td></tr>
+        <tr><td><strong>4G/LTE</strong></td><td>2009</td><td>LTE, WiMAX</td><td>OFDMA + MIMO</td><td>100 Mbit/s+</td><td>All-IP, broadband mobile</td></tr>
+        <tr><td><strong>5G NR</strong></td><td>2018</td><td>5G NR (3GPP)</td><td>mm-Wave, Massive MIMO</td><td>10 Gbit/s</td><td>URLLC, mMTC, eMBB, tactile internet</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight">
+    <div class="i-title">📌 5G Service Categories — The Three Pillars</div>
+    <ul>
+      <li><strong>eMBB (enhanced Mobile BroadBand):</strong> high data rates — streaming, VR/AR (up to 100 Gbit/s for VR)</li>
+      <li><strong>URLLC (Ultra-Reliable Low-Latency Communication):</strong> &lt;1 ms latency — autonomous vehicles, remote surgery, tactile internet</li>
+      <li><strong>mMTC (massive Machine-Type Communication):</strong> millions of IoT devices, low power — smart cities, sensors</li>
+    </ul>
+  </div>
+
+  <div class="sec">System Architecture — From Radio to Internet</div>
   <div class="grid g3">
     <div class="card">
-      <div class="card-title">📻 Early Beginnings (1946–1970s)</div>
+      <div class="card-title">📱 UE → BS Link (Air Interface)</div>
       <ul>
-        <li><strong>1946:</strong> First mobile telephone system in St. Louis, USA — only 6 speech channels</li>
-        <li>Limited spectrum availability → birth of the <strong>cellular principle</strong> at AT&T Bell Labs</li>
-        <li><strong>1957:</strong> Soviet Union launched Sputnik → paving the way for satellite communications</li>
-        <li><strong>1979:</strong> Japan's NTT launched first commercial cellular system in Tokyo</li>
+        <li>UE transmits on the <strong>Uplink (UL)</strong> to Base Station (BS)</li>
+        <li>BS transmits on the <strong>Downlink (DL)</strong> to UE</li>
+        <li>Connection via radio signal at carrier frequency f_c</li>
+        <li>BS coverage defines a <strong>cell</strong> — radius from 300 m (microcell) to 30 km (macrocell)</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">📱 1G → 2G (1980s–1990s)</div>
+      <div class="card-title">🏗️ Network Infrastructure</div>
       <ul>
-        <li><strong>1G (Analog):</strong> AMPS in USA, NMT in Europe — low penetration, bulky phones</li>
-        <li>Transition to digital → development of <strong>GSM</strong> (dominant 2G standard)</li>
-        <li>By <strong>2000:</strong> mobile penetration exceeded 50% in Europe and Japan</li>
-        <li>USA & Japan had multiple competing 2G standards (standardization issues)</li>
+        <li><strong>BS (Base Station):</strong> radio head + antenna — the cell center</li>
+        <li><strong>MSC (Mobile Switching Center):</strong> routes calls/data between cells and to PSTN/internet</li>
+        <li><strong>HLR (Home Location Register):</strong> permanent subscriber database</li>
+        <li><strong>VLR (Visitor Location Register):</strong> tracks UE's current cell location</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">🚀 3G → 5G (2000s–today)</div>
+      <div class="card-title">🔁 Key System Properties</div>
       <ul>
-        <li><strong>3G:</strong> CDMA-based systems, data services, video calls</li>
-        <li><strong>4G/LTE (2009):</strong> dominant broadband standard, OFDM-based</li>
-        <li><strong>2006:</strong> WiMAX (IEEE 802.16m) introduced</li>
-        <li><strong>5G:</strong> real-time tactile internet, remote surgery, ultra-low latency (&lt;1ms)</li>
+        <li><strong>Bidirectional:</strong> simultaneous TX & RX (FDD) or alternating (TDD)</li>
+        <li><strong>Location independence:</strong> network finds the UE — caller needs no location info</li>
+        <li><strong>Handover:</strong> seamless transfer between BSs while in active call</li>
+        <li><strong>Privacy:</strong> encryption ensures data intended only for recipient</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec">Wireless System Architecture</div>
+  <div class="sec">The Cellular Principle — The Core Invention</div>
   <div class="grid g2">
     <div class="card">
-      <div class="card-title">🏗️ Basic System Components</div>
+      <div class="card-title">🔢 Why Cells? The Spectrum Problem</div>
       <ul>
-        <li><strong>UE (User Equipment):</strong> connects to a Base Station (BS) via radio signal</li>
-        <li><strong>BS (Base Station):</strong> connects to the Mobile Switching Center (MSC)</li>
-        <li><strong>MSC:</strong> links to the internet and/or public telephone system (PSTN)</li>
-        <li><strong>Uplink (UL):</strong> MS → BS · <strong>Downlink (DL):</strong> BS → MS</li>
-        <li>TX → Channel → RX: attenuation, phase shift, noise</li>
+        <li>Spectrum is finite and shared by all users</li>
+        <li>Divide geographic area into <strong>smaller cells</strong></li>
+        <li>Each cell uses only a <strong>subset of frequencies</strong></li>
+        <li>Distant cells reuse the <strong>same frequencies</strong> — beyond interference range</li>
+        <li>Frequency reuse factor K: K=1 (all cells same freq, 5G), K=3,7,… (older cellular)</li>
+        <li>Smaller cells → more cells per km² → higher system capacity</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">✅ Key Wireless System Requirements</div>
+      <div class="card-title">📶 Multiple Access Schemes</div>
       <ul>
-        <li><strong>Bidirectional Communication:</strong> simultaneous send & receive</li>
-        <li><strong>Location Independence:</strong> caller need not know UE location</li>
-        <li><strong>Mobility:</strong> seamless handover across base stations during a call</li>
-        <li><strong>Call Initiation:</strong> from user or network side</li>
-        <li><strong>Privacy & Security:</strong> data intended only for the recipient</li>
+        <li><strong>FDMA:</strong> divide spectrum into channels — one user per channel (1G)</li>
+        <li><strong>TDMA:</strong> divide time into slots — share each frequency (2G GSM)</li>
+        <li><strong>CDMA:</strong> all users share same time & frequency, separated by orthogonal codes (3G)</li>
+        <li><strong>OFDMA:</strong> assign OFDM subcarriers per user dynamically (4G LTE, 5G NR)</li>
+        <li><strong>FDD:</strong> separate frequencies for UL & DL — continuous transmission</li>
+        <li><strong>TDD:</strong> same frequency, alternate UL/DL in time — flexible ratio</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec">Cellular Principle & Frequency Reuse</div>
-  <div class="grid g3">
+  <div class="sec">Infrastructure Variants — Beyond Terrestrial BSs</div>
+  <div class="grid g4">
     <div class="card">
-      <div class="card-title">🔢 Multiple Access</div>
+      <div class="card-title">🛸 GEO Satellite</div>
       <ul>
-        <li>Number of active users <strong>limited by bandwidth</strong></li>
-        <li>Users share bandwidth via <strong>multiple access schemes</strong> (FDMA, TDMA, CDMA, OFDMA)</li>
-        <li>FDD: uplink & downlink on separate frequencies</li>
-        <li>TDD: uplink & downlink share same frequency, separated in time</li>
+        <li>Altitude: ~36,000 km</li>
+        <li>Large cell diameter (continental)</li>
+        <li>High latency (~250 ms)</li>
+        <li>High power needed</li>
+        <li>Coverage: remote areas</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">🗺️ Cellular Principle</div>
+      <div class="card-title">🛰️ LEO Satellite</div>
       <ul>
-        <li>Network area divided into <strong>smaller cells</strong> to maximize bandwidth use</li>
-        <li><strong>Frequency Reuse:</strong> neighboring cells use different frequencies to avoid interference</li>
-        <li>Distant cells can <strong>reuse the same frequencies</strong></li>
-        <li>Unlimited Mobility: users move seamlessly between cells (<strong>handover</strong>)</li>
+        <li>Altitude: 500–2000 km</li>
+        <li>Cell: tens of km diameter</li>
+        <li>Lower latency (&lt;20 ms)</li>
+        <li>StarLink: &gt;5000 satellites</li>
+        <li>Future 6G integration</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">⚠️ Main Wireless Impairments</div>
+      <div class="card-title">🚁 UAV / Drone BS</div>
       <ul>
-        <li><strong>Multipath propagation:</strong> signal reaches RX via multiple paths</li>
-        <li><strong>Fading:</strong> constructive/destructive interference → signal variations</li>
-        <li><strong>Shadowing:</strong> obstacles reduce signal amplitude (large-scale)</li>
-        <li><strong>ISI:</strong> inter-symbol interference in wideband systems</li>
-        <li><strong>Spectrum limitations:</strong> regulated internationally by ITU/FCC/CEPT</li>
+        <li>Acts as mobile BS in air</li>
+        <li>Adjustable coverage via altitude</li>
+        <li>Events, disaster recovery</li>
+        <li>Challenge: battery, payload</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🎙️ Trunking (TETRA)</div>
+      <ul>
+        <li>Closed user groups (police, fire)</li>
+        <li>Group calls + call priorities</li>
+        <li>Emergency call preemption</li>
+        <li>Ultra-reliable, push-to-talk</li>
       </ul>
     </div>
   </div>
 
-  <div class="keybox">
-    <div class="kt">💡 Key Idea of Chapter 1</div>
-    <p>Wireless communication has evolved from bulky analog 1G systems (1980s) to 5G ultra-low-latency networks. The <strong>cellular principle</strong> — dividing coverage into cells with frequency reuse — remains the core concept enabling scalable, mobile networks. The main challenges are multipath fading, shadowing, limited spectrum, and interference. Understanding these impairments and how to model/combat them is the foundation of the entire course.</p>
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 1</div>
+    <p>Wireless systems evolved from 6-channel analog systems in 1946 to 5G handling billions of IoT devices simultaneously. The driving innovation is the <strong>cellular principle</strong> (frequency reuse in smaller cells), which trades infrastructure cost for unlimited capacity scaling. The fundamental architecture (UE → BS → MSC → internet) has remained constant across all generations — only the radio interface technology (modulation, coding, MIMO, OFDM) has evolved. <strong>Everything else in this course explains why and how the radio interface works.</strong></p>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+
+<!-- ═══════════════════════════════════════════════
      CH2 — Technical Challenges
-     ══════════════════════════════════════ -->
+═══════════════════════════════════════════════ -->
 <div id="ch2" class="chapter ch2">
-  <div class="ch-header">
+  <div class="ch-head">
     <div class="ch-icon">⚡</div>
     <div>
-      <h2>Chapter 2 — Technical Challenges of Wireless Communications</h2>
-      <div class="ch-sub">Service requirements · Data rate · Range · Mobility · Energy · Multipath · Shadowing · ISI · Spectrum · Energy harvesting</div>
-      <div class="ch-obj">🎯 Identify key design requirements per application type · Understand the main technical challenges in wireless system design</div>
+      <h2>Module 2 — Technical Challenges of Wireless Communications</h2>
+      <div class="sub">Service requirements (data rate, range, mobility, energy) · Multipath fading · Shadowing · ISI · Doppler · Spectrum allocation · Energy design</div>
+      <div class="obj">
+        <span class="obj-tag">Quantify</span> the design requirements per application class
+        <span class="obj-tag">Understand</span> each impairment physically, not just by name
+        <span class="obj-tag">Connect</span> each challenge to its mitigation technique
+      </div>
     </div>
   </div>
 
-  <div class="sec">Requirements for Wireless Services</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">📶 Data Rate Requirements</div>
-      <ul>
-        <li><strong>Sensor Networks / IoT:</strong> few bits/s to 1 kbit/s; central nodes up to 10 Mbit/s</li>
-        <li><strong>Speech Communications:</strong> 5 to 64 kbit/s</li>
-        <li><strong>Computer Peripherals:</strong> ~1 Mbit/s</li>
-        <li><strong>Video Streaming:</strong> 200 kbit/s → 20 Mbit/s; HDTV needs 2 Gbit/s</li>
-        <li><strong>Web/Social Media:</strong> 1–10 Mbit/s with high peak rates</li>
-        <li><strong>PANs / VR:</strong> 100 Mbit/s to 10 Gbit/s (up to 100 Gbit/s for VR)</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">📏 Range & Number of Users</div>
-      <ul>
-        <li><strong>BANs:</strong> 1 m range — body-area communication</li>
-        <li><strong>PANs:</strong> up to 10 m — personal devices (Bluetooth)</li>
-        <li><strong>WLANs:</strong> up to 100 m — ~10 simultaneous users (Wi-Fi)</li>
-        <li><strong>Microcells:</strong> 300 m, 5–500 users</li>
-        <li><strong>Macrocells:</strong> up to 30 km — wide-area coverage</li>
-        <li><strong>Satellite:</strong> geostationary → 1000 km radius</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">Mobility & Energy Constraints</div>
-  <div class="grid g3">
-    <div class="card">
-      <div class="card-title">🚶 Mobility Classes</div>
-      <ul>
-        <li><strong>Fixed:</strong> always communicates from same location</li>
-        <li><strong>Nomadic:</strong> stationary during use, moved between locations</li>
-        <li><strong>Low Mobility:</strong> pedestrian speed — slow channel variation</li>
-        <li><strong>High Mobility:</strong> 30–150 km/h (cars)</li>
-        <li><strong>Extreme Mobility:</strong> 300–1000 km/h (trains/planes) — challenging handover</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🔋 Energy Constraints</div>
-      <ul>
-        <li>Battery-powered devices require <strong>energy efficiency</strong></li>
-        <li><strong>Energy Harvesting:</strong> converting ambient energy (RF, solar, thermal) to electrical power</li>
-        <li>Trade-off: high sensitivity ↔ energy efficiency</li>
-        <li>Design must balance data rate, range, and power consumption</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">📊 Spectrum Constraints</div>
-      <ul>
-        <li>Wireless spectrum is <strong>limited and regulated</strong> internationally</li>
-        <li>Regulated by <strong>ITU</strong>, FCC (USA), ARIB (Japan), CEPT (Europe)</li>
-        <li>Spectrum is allocated in <strong>frequency bands</strong> per application</li>
-        <li>Efficient reuse strategies are essential (cellular, OFDMA, massive MIMO)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">Core Technical Challenges</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">🌊 Multipath Propagation</div>
-      <ul>
-        <li>Signal reaches RX via <strong>multiple paths</strong> due to reflections, diffractions, scattering</li>
-        <li>Different Multi-Path Components (MPCs) arrive at <strong>different delays and phases</strong></li>
-        <li><strong>Constructive interference:</strong> paths add up → signal boost</li>
-        <li><strong>Destructive interference:</strong> paths cancel → deep fading dip</li>
-        <li>Results in <strong>small-scale fading</strong> (rapid amplitude variations over λ/2 distance)</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🏢 Shadowing & ISI</div>
-      <ul>
-        <li><strong>Shadowing:</strong> obstacles (buildings, walls) block signal → large-scale amplitude reduction</li>
-        <li>Causes log-normal variation around the mean path loss</li>
-        <li><strong>ISI (Inter-Symbol Interference):</strong> in wideband systems, delayed copies of a symbol interfere with the next symbol</li>
-        <li>Without countermeasures, ISI introduces <strong>irreducible error floors</strong></li>
-        <li>Solutions: equalization, OFDM, guard intervals</li>
-      </ul>
-    </div>
-  </div>
-
+  <div class="sec">The Four Design Dimensions</div>
   <div class="tbl-wrap">
     <table>
-      <thead><tr><th>Challenge</th><th>Physical Cause</th><th>Scale</th><th>Mitigation</th></tr></thead>
+      <thead><tr><th>Application</th><th>Data Rate</th><th>Range</th><th>Mobility</th><th>Energy</th></tr></thead>
       <tbody>
-        <tr><td><strong>Small-scale fading</strong></td><td>Multipath interference</td><td>λ/2 ≈ cm</td><td>Diversity, OFDM, equalization</td></tr>
-        <tr><td><strong>Shadowing</strong></td><td>Obstacles blocking signal</td><td>10–100 m</td><td>Fading margin, power control</td></tr>
-        <tr><td><strong>Path loss</strong></td><td>Distance, free-space decay</td><td>km</td><td>Link budget, cell planning</td></tr>
-        <tr><td><strong>ISI</strong></td><td>Delay spread > symbol period</td><td>Wideband</td><td>OFDM, guard interval, equalizer</td></tr>
-        <tr><td><strong>Interference</strong></td><td>Other cells/users</td><td>System-level</td><td>Frequency reuse, CDMA, beamforming</td></tr>
-        <tr><td><strong>Doppler</strong></td><td>Mobility → frequency shift</td><td>High-speed</td><td>Channel tracking, pilot symbols</td></tr>
+        <tr><td><strong>IoT Sensors</strong></td><td>1 bit/s–1 kbit/s</td><td>10 m–km</td><td>Fixed/low</td><td>Extreme efficiency (years battery)</td></tr>
+        <tr><td><strong>Voice (Speech)</strong></td><td>5–64 kbit/s</td><td>Macrocell</td><td>High (300 km/h)</td><td>Moderate</td></tr>
+        <tr><td><strong>WLAN / Wi-Fi</strong></td><td>100 Mbit/s–10 Gbit/s</td><td>Up to 100 m</td><td>Nomadic</td><td>Moderate (plugged)</td></tr>
+        <tr><td><strong>4G/5G Cellular</strong></td><td>10 Mbit/s–1 Gbit/s</td><td>Macro/microcell</td><td>High</td><td>Battery-critical for UE</td></tr>
+        <tr><td><strong>URLLC (5G)</strong></td><td>Moderate</td><td>Local</td><td>Any</td><td>Any</td></tr>
+        <tr><td><strong>VR / 8K streaming</strong></td><td>2–100 Gbit/s</td><td>WLAN</td><td>Low</td><td>High (tethered ok)</td></tr>
+        <tr><td><strong>Satellite Comms</strong></td><td>10–100 Mbit/s</td><td>Continental</td><td>Any</td><td>High-power TX needed</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="keybox">
-    <div class="kt">💡 Key Idea of Chapter 2</div>
-    <p>Wireless system design requires balancing four competing requirements: <strong>data rate, range, mobility, and energy</strong>. No single technology is optimal for all. The core technical difficulties stem from the wireless channel itself: <strong>multipath fading</strong> causes rapid signal variations, <strong>shadowing</strong> causes slow amplitude drops, <strong>ISI</strong> limits bandwidth in wideband systems, and <strong>Doppler</strong> affects fast-moving users. Understanding these challenges motivates all the modeling and mitigation techniques covered in subsequent chapters.</p>
+  <div class="sec">The Wireless Channel — Four Core Impairments</div>
+
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🌊 1 — Multipath Propagation (Physical cause of fading)</div>
+      <ul>
+        <li>Signal reaches RX via <strong>multiple paths</strong>: reflections, diffractions, scattering</li>
+        <li>Each MPC has: unique <strong>amplitude, delay, phase, angle</strong> of arrival/departure</li>
+        <li><strong>Constructive:</strong> paths add coherently → signal boost (up to ×2 in amplitude)</li>
+        <li><strong>Destructive:</strong> paths cancel → deep fade (theoretically −∞ dB, practically −30 to −40 dB)</li>
+        <li>At 2 GHz, moving just <strong>7.5 cm (= λ/2)</strong> can flip constructive to destructive</li>
+        <li>This rapid variation is called <strong>small-scale (fast) fading</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🏢 2 — Shadowing (Slow amplitude variation)</div>
+      <ul>
+        <li>Buildings, hills, walls block or attenuate signal — <strong>large-scale variation</strong></li>
+        <li>Changes slowly as UE moves: correlation over <strong>10–100 m</strong> (vs λ/2 for fast fading)</li>
+        <li>Modeled as <strong>log-normal:</strong> S_dB ~ N(0, σ_S²)</li>
+        <li>Typical σ_S: 4–10 dB in urban environments</li>
+        <li>Both fast and slow fading <strong>coexist</strong> — the total received power = path loss + shadowing + fast fading</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">📡 3 — Inter-Symbol Interference (ISI)</div>
+      <ul>
+        <li>In <strong>wideband systems</strong>: delayed echoes overlap the <em>next</em> symbol in time</li>
+        <li>Occurs when: <strong>delay spread τ_rms &gt; symbol period T_s</strong></li>
+        <li>Example: 1 Msymbol/s → T_s = 1 μs; if τ_rms = 250 ns → ISI from 250 ns-delayed echo!</li>
+        <li>ISI creates an <strong>irreducible error floor</strong>: increasing TX power cannot fix it</li>
+        <li>Solutions: <strong>OFDM</strong> (cyclic prefix eliminates ISI), equalizers, RAKE receiver</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🏃 4 — Doppler Shift (Mobility effect)</div>
+      <ul>
+        <li>Moving RX → received frequency is shifted: <strong>ν = f_c · (v/c) · cos(γ)</strong></li>
+        <li>γ = angle between velocity vector and wave direction</li>
+        <li>Maximum Doppler: <strong>ν_max = f_c · v / c</strong></li>
+        <li>Example: GSM 900 MHz, v = 110 km/h → ν_max = 92 Hz</li>
+        <li>Example: WLAN 5.2 GHz, v = 5 km/h → ν_max = 24 Hz</li>
+        <li>Doppler causes <strong>time-varying</strong> channel: channel "moves" at rate ν_max</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Spectrum Allocation — International Regulatory Framework</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Frequency Band</th><th>Primary Users</th><th>Key Feature</th></tr></thead>
+      <tbody>
+        <tr><td><strong>&lt; 100 MHz</strong></td><td>CB radio, pagers, aviation, maritime</td><td>Long range, poor capacity</td></tr>
+        <tr><td><strong>400–500 MHz</strong></td><td>Cellular (low band), trunking radio</td><td>Good penetration, low user density</td></tr>
+        <tr><td><strong>700–1000 MHz</strong></td><td>Cellular (800/900 MHz), ISM at 915 MHz</td><td>Good coverage, LTE sub-GHz</td></tr>
+        <tr><td><strong>1.7–2.2 GHz</strong></td><td><em>Primary cellular band</em> (3G, 4G)</td><td>Balance coverage/capacity</td></tr>
+        <tr><td><strong>2.4–2.5 GHz</strong></td><td>Wi-Fi (802.11b/g/n), Bluetooth, microwave ovens</td><td>ISM: unlicensed, congested</td></tr>
+        <tr><td><strong>3.3–3.8 GHz</strong></td><td>5G mid-band (since ~2020)</td><td>5G primary band globally</td></tr>
+        <tr><td><strong>5.8 GHz</strong></td><td>Wi-Fi (802.11a/n/ac/ax), vehicle comms</td><td>Higher capacity, shorter range</td></tr>
+        <tr><td><strong>28 GHz, 37–40 GHz</strong></td><td>5G mm-Wave (licensed)</td><td>Huge bandwidth, very short range</td></tr>
+        <tr><td><strong>57–71 GHz</strong></td><td>5G mm-Wave (unlicensed), WiGig</td><td>O₂ absorption → very short range</td></tr>
+        <tr><td><strong>&gt; 100 GHz</strong></td><td>6G (research), radar, sensing</td><td>Terahertz frontier</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">Energy Efficiency — Design Imperatives</div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="card-title">🔋 Power Sources</div>
+      <ul>
+        <li><strong>Rechargeable:</strong> smartphones, optimized power management required</li>
+        <li><strong>One-way batteries:</strong> IoT sensors, must last years → extreme efficiency</li>
+        <li><strong>Energy harvesting:</strong> RF, solar, thermal → batteryless operation</li>
+        <li><strong>Power mains:</strong> BSs — can use high power for downlink</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⚙️ UE Energy Design Techniques</div>
+      <ul>
+        <li><strong>High-efficiency PA:</strong> power amplifier is largest consumer</li>
+        <li><strong>CMOS low-power DSP:</strong> reduce digital processing energy</li>
+        <li><strong>Adaptive TX power control:</strong> only transmit needed power</li>
+        <li><strong>DTX (Discontinuous TX):</strong> switch off during silence</li>
+        <li><strong>Sleep/standby modes:</strong> deep sleep between packets</li>
+        <li><strong>High RX sensitivity:</strong> GSM operates at −100 dBm</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⚠️ The Key Trade-off</div>
+      <ul>
+        <li>High sensitivity ↔ energy consumption conflict</li>
+        <li>Low-noise amplifier (LNA) needs bias current → power consumption</li>
+        <li>BS can use more power (mains) → higher downlink power &amp; gain</li>
+        <li>UE safety limits TX power to a few hundred mW (SAR regulation)</li>
+        <li>This <strong>asymmetry</strong> between UL and DL drives all link budget differences</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 2</div>
+    <p>Every wireless impairment has a specific physical cause and a corresponding mitigation. <strong>Fast fading</strong> (multipath, scale: λ/2 ~ cm) is mitigated by diversity, OFDM, MIMO. <strong>Shadowing</strong> (scale: 10–100 m) is handled by power control and fading margin in the link budget. <strong>ISI</strong> (wideband) is solved by OFDM cyclic prefix or equalizers. <strong>Doppler</strong> (mobility) is tracked by pilot-aided channel estimation. Understanding this cause-mitigation map is essential for system design.</p>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+
+<!-- ═══════════════════════════════════════════════
      CH3 — System Design & Link Budget
-     ══════════════════════════════════════ -->
+═══════════════════════════════════════════════ -->
 <div id="ch3" class="chapter ch3">
-  <div class="ch-header">
+  <div class="ch-head">
     <div class="ch-icon">📊</div>
     <div>
-      <h2>Chapter 3 — Wireless System Design Overview</h2>
-      <div class="ch-sub">SNR basics · Noise sources · Noise factor · Equivalent noise · Antennas · EIRP · Link budget · Downlink vs Uplink · Coverage estimation</div>
-      <div class="ch-obj">🎯 Compute SNR in a wireless link · Build a complete link budget · Estimate coverage distance from system parameters</div>
+      <h2>Module 3 — Wireless System Design & Link Budget</h2>
+      <div class="sub">Noise model · Noise factor · Equivalent noise · Antennas · EIRP · dB arithmetic · Friis' law · Breakpoint model · Fading margin · Complete link budget · GSM example</div>
+      <div class="obj">
+        <span class="obj-tag">Compute</span> the noise floor from first principles
+        <span class="obj-tag">Build</span> a complete link budget step by step
+        <span class="obj-tag">Estimate</span> coverage distance from system parameters
+      </div>
     </div>
   </div>
 
-  <div class="sec">Noise in a Wireless Receiver</div>
+  <div class="sec">The Central Question: What is the SNR at the Receiver?</div>
+  <div class="insight">
+    <div class="i-title">📖 The SNR Chain</div>
+    <p>The received Signal-to-Noise Ratio (SNR) determines all communication performance (bit error rate, capacity, coverage). To compute it, we must account for every gain and loss between TX and RX. The <strong>link budget</strong> is simply the table that lists all of these.</p>
+  </div>
+
+  <div class="formula">
+    <span class="f-label">Master SNR Equation</span>
+    SNR [dB] = P_TX [dBm] + G_TX [dBi] − L_feeder_TX [dB] − L_path [dB] + G_RX [dBi] − L_feeder_RX [dB] − P_noise [dBm]
+    <br>
+    <span class="f-unit">where P_noise = −174 + 10·log₁₀(B[Hz]) + NF [dBm]</span>
+  </div>
+
+  <div class="sec">Noise — From Physics to dBm</div>
   <div class="grid g2">
     <div class="card">
-      <div class="card-title">🔊 Noise Sources</div>
+      <div class="card-title">🌡️ Thermal Noise — The Fundamental Floor</div>
       <ul>
-        <li><strong>Thermal noise:</strong> due to random electron motion — unavoidable</li>
-        <li><strong>Noise picked up by antenna:</strong> external interference and environmental noise</li>
-        <li><strong>Man-made noise:</strong> spurious emissions from other systems</li>
-        <li>Total noise power in bandwidth B: <strong>Pn = −174 + 10·log₁₀(B) dBm</strong></li>
-        <li>−174 dBm/Hz = thermal noise floor at room temperature (290 K)</li>
+        <li>Origin: random thermal motion of electrons in any resistor</li>
+        <li>Noise PSD: <strong>N₀ = k_B · T₀</strong> where k_B = 1.38×10⁻²³ J/K</li>
+        <li>At room temperature T₀ = 290 K: <em>N₀ = −174 dBm/Hz</em></li>
+        <li>Total noise in bandwidth B: <strong>P_n = −174 + 10·log₁₀(B) dBm</strong></li>
+        <li>Example: B = 200 kHz (GSM): P_n = −174 + 53 = <strong>−121 dBm</strong></li>
+        <li>Example: B = 20 MHz (LTE): P_n = −174 + 73 = <strong>−101 dBm</strong></li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">📐 Noise Characterization</div>
+      <div class="card-title">📐 Noise Factor / Figure — Receiver Degradation</div>
       <ul>
-        <li>Power spectral density expressed in three ways:</li>
-        <li><strong>1) Directly [W/Hz]</strong> — linear scale</li>
-        <li><strong>2) Noise temperature [Kelvin]</strong> — T₀ = 290 K (room temperature)</li>
-        <li><strong>3) Noise factor F [dimensionless]</strong> — ratio of input SNR to output SNR</li>
-        <li>Relation: <strong>S = k · T₀ · F</strong>, where k = 1.38×10⁻²³ W/Hz (Boltzmann)</li>
-        <li>All noise sources replaced by a single <strong>equivalent noise source</strong></li>
+        <li><strong>Noise factor F:</strong> ratio of output SNR to input SNR (linear, ≥1)</li>
+        <li><strong>Noise figure NF = 10·log₁₀(F)</strong> in dB (≥0 dB)</li>
+        <li>Effective noise: <strong>P_eff = −174 + 10·log₁₀(B) + NF [dBm]</strong></li>
+        <li>NF of LNA: 1–3 dB (good) · consumer devices: 5–10 dB</li>
+        <li>Man-made noise: +20 dB extra at 150 MHz, +10 dB at 900 MHz, +5 dB (urban UMTS)</li>
+        <li>NF affects only thermal noise — not external interference</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec">Antennas & Radiated Power</div>
+  <div class="sec">Antennas — Directing Energy</div>
   <div class="grid g3">
     <div class="card">
-      <div class="card-title">📡 Isotropic Antenna</div>
+      <div class="card-title">⭕ Isotropic Antenna (Reference)</div>
       <ul>
-        <li>Radiates equally in <strong>all directions</strong> (spherical radiation pattern)</li>
-        <li>Theoretical reference — cannot be built physically</li>
-        <li>Antenna gain G is measured <strong>relative to the isotropic antenna</strong></li>
-        <li>Dipole antenna: gains ≈ 2.15 dBi above isotropic</li>
+        <li>Radiates equally in <strong>all directions</strong> (spherical pattern)</li>
+        <li>Theoretical only — cannot be physically built</li>
+        <li>Gain = 0 dBi by definition</li>
+        <li>Used as reference for all antenna gain specifications</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">⚡ EIRP</div>
+      <div class="card-title">📡 Dipole Antenna</div>
       <ul>
-        <li><strong>EIRP</strong> = Equivalent Isotropically Radiated Power</li>
-        <li>EIRP [dBm] = P_TX [dBm] + G_TX [dBi]</li>
-        <li>Represents the power a lossless isotropic antenna would need to produce the same field</li>
-        <li>Antenna losses reduce effective gain (especially relevant for UE)</li>
+        <li>λ/2 dipole: gain ≈ <strong>2.15 dBi</strong> above isotropic</li>
+        <li>Radiates in a torus shape — no radiation along antenna axis</li>
+        <li>The principle: same input power, more energy in useful directions → apparent "gain"</li>
+        <li>Antenna gain = power focusing, NOT power amplification</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">🔁 Uplink vs Downlink</div>
+      <div class="card-title">⚡ EIRP — Effective Radiated Power</div>
       <ul>
-        <li>UL and DL are <strong>reciprocal</strong> in path propagation terms</li>
-        <li>But differ in: transmit power, antenna gain, noise figure</li>
-        <li><strong>BS antenna gain</strong> typically much higher than UE antenna</li>
-        <li>UE transmit power limited by battery → UL often more constrained</li>
+        <li><strong>EIRP = P_TX + G_TX</strong> [dBm + dBi = dBm]</li>
+        <li>Answers: "How much isotropic power gives same max radiation?"</li>
+        <li>Regulatory limit is often on EIRP (not just power)</li>
+        <li>UE real gain is often negative (near-field absorption by body)</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec">Link Budget</div>
-  <div class="keybox">
-    <div class="kt">What is a Link Budget?</div>
-    <ul>
-      <li>An accounting of all <strong>gains and losses</strong> in the signal path from TX to RX</li>
-      <li>All quantities expressed in <strong>dB / dBm</strong> (multiplicative factors become additions)</li>
-      <li>Output: required transmit power, or achievable coverage distance</li>
-      <li>Used for both <strong>Downlink (BS→UE)</strong> and <strong>Uplink (UE→BS)</strong></li>
-    </ul>
-  </div>
-  <div class="formula">P_RX [dBm] = P_TX [dBm] + G_TX [dBi] − L_path [dB] + G_RX [dBi] − L_losses [dB]
-
-SNR [dB] = P_RX [dBm] − P_noise [dBm]
-
-P_noise [dBm] = −174 + 10·log₁₀(B) + NF   [dBm]</div>
-
-  <div class="sec">Path Loss Models (Mental Arithmetic)</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">🌌 Free-Space Reference (1 m, 1 GHz)</div>
-      <ul>
-        <li>At 1 m distance, 1 GHz carrier: <strong>L_FS = 31.5 dB</strong> (useful reference)</li>
-        <li>For distances d &gt; 1 m but d &lt; d_break: add <strong>20·log₁₀(d)</strong> dB</li>
-        <li>For d &gt; d_break (two-ray region): add <strong>40·log₁₀(d/d_break)</strong> extra</li>
-        <li>Frequency scaling: every doubling of f adds <strong>+6 dB</strong> to free-space loss</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">📏 Coverage Estimation Example</div>
-      <ul>
-        <li>GSM downlink: f = 950 MHz, P_TX = 43 dBm, G_TX = 15 dBi</li>
-        <li>Sensitivity (RX min power) → determines max allowable path loss</li>
-        <li>With n = 3.5 (NLOS): coverage distance ≈ <strong>8.8 km</strong></li>
-        <li>Key: when n is given, solve 10n·log₁₀(d) = max path loss margin</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">dB Arithmetic — Quick Reference</div>
+  <div class="sec">dB Arithmetic — The Engineer's Mental Calculator</div>
   <div class="tbl-wrap">
     <table>
-      <thead><tr><th>Linear Value</th><th>dB Equivalent</th><th>Trick</th></tr></thead>
+      <thead><tr><th>Linear Multiplier</th><th>dB</th><th>Trick</th><th>Example Use</th></tr></thead>
       <tbody>
-        <tr><td>2</td><td>≈ 3 dB</td><td>doubling = +3 dB</td></tr>
-        <tr><td>10</td><td>10 dB</td><td>exact</td></tr>
-        <tr><td>100</td><td>20 dB</td><td>×10 twice</td></tr>
-        <tr><td>160</td><td>22 dB</td><td>8×2×10 = (9+3+10) dB</td></tr>
-        <tr><td>1/2</td><td>−3 dB</td><td>halving = −3 dB</td></tr>
-        <tr><td>1 mW</td><td>0 dBm</td><td>reference for power</td></tr>
-        <tr><td>1 W</td><td>30 dBm</td><td>1000 mW = +30 dB</td></tr>
+        <tr><td>2</td><td><em>3 dB</em></td><td>doubling</td><td>2× bandwidth → +3 dB noise</td></tr>
+        <tr><td>3</td><td>≈ 5 dB</td><td>≈√10</td><td>3 antenna elements → +5 dB gain</td></tr>
+        <tr><td>5</td><td>≈ 7 dB</td><td>10/2 = 5→10−3</td><td>—</td></tr>
+        <tr><td>8</td><td>9 dB</td><td>2³</td><td>8 elements → 9 dB array gain</td></tr>
+        <tr><td>10</td><td><em>10 dB</em></td><td>exact</td><td>1 decade of distance (n=1)</td></tr>
+        <tr><td>160</td><td>22 dB</td><td>8×2×10 → 9+3+10</td><td>GSM example in course</td></tr>
+        <tr><td>1 mW</td><td><em>0 dBm</em></td><td>reference</td><td>—</td></tr>
+        <tr><td>1 W = 1000 mW</td><td>30 dBm</td><td>10³ → 30 dB</td><td>Small BS TX power</td></tr>
+        <tr><td>30 W</td><td>44.8 ≈ 45 dBm</td><td>30 = 3×10 → 5+10+30</td><td>GSM BTS TX (example)</td></tr>
+        <tr><td>40 W</td><td>46 dBm</td><td>40 = 4×10 → 6+10+30</td><td>GSM BS (example)</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="keybox">
-    <div class="kt">💡 Key Idea of Chapter 3</div>
-    <p>A <strong>link budget</strong> is the central design tool: express all gains and losses in dB, sum them up, and check whether SNR ≥ minimum required SNR. The noise floor is set by <strong>−174 dBm/Hz + 10·log₁₀(B) + NF</strong>. EIRP = P_TX + G_TX captures the effective radiated power. Path loss dominates at large distances and scales as <strong>20n·log₁₀(d)</strong> where n is the path loss exponent (n = 2 in free space, n ≈ 3.5 in typical outdoor NLOS). A <strong>fading margin</strong> must be added to handle random channel variations.</p>
+  <div class="sec">Path Loss Models — How Signal Decays with Distance</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🌌 Friis' Free-Space Law (d &lt; d_break)</div>
+      <ul>
+        <li><strong>P_RX = P_TX · G_TX · G_RX · (λ/4πd)²</strong></li>
+        <li>In dB: P_RX = P_TX + G_TX + G_RX − 20·log₁₀(4πd/λ)</li>
+        <li>Path loss at 1 m, 1 GHz: <strong>L_FS(1m, 1GHz) = 32 dB</strong></li>
+        <li>For arbitrary f_c: add <strong>20·log₁₀(f_c / 1 GHz)</strong> dB</li>
+        <li>For d &gt; 1 m: add <strong>20·log₁₀(d / 1 m)</strong> dB</li>
+        <li>Valid only in the <strong>far field</strong>: d &gt; d_Rayleigh = 2L_a²/λ</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📉 Breakpoint Model (d &gt; d_break)</div>
+      <ul>
+        <li>In real terrestrial systems, at d &gt; d_break the path loss exponent changes</li>
+        <li><strong>PL(d) = PL(d_break) + 10·α_LBP · log₁₀(d/d_break)</strong></li>
+        <li>α_LBP: path loss exponent = <em>1.5–2.5 (LOS)</em> or <em>3.5–4.5 (NLOS)</em></li>
+        <li>Physical cause: two-ray ground reflection cancels out (d⁻⁴ law takes over)</li>
+        <li>d_break ≈ 4·h_TX·h_RX / λ (antenna heights)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="f-label">Complete Path Loss Formula (mental arithmetic version)</span>
+    PL(d, f_c) = 32 + 20·log₁₀(f_c/1GHz) + 20·log₁₀(d/1m)    [d ≤ d_break, d in meters]
+    PL(d, f_c) = 32 + 20·log₁₀(f_c/1GHz) + 20·log₁₀(d_break) + α·10·log₁₀(d/d_break)    [d > d_break]
+  </div>
+
+  <div class="sec">Fading Margin — Accounting for Channel Variability</div>
+  <div class="insight">
+    <div class="i-title">⚠️ Why We Need a Fading Margin</div>
+    <p>Path loss models give only the <strong>mean</strong> received power. Due to fading, the actual instantaneous power fluctuates randomly. If we design for the mean, transmission quality is met only <strong>50% of the time</strong> — unacceptable. A fading margin (FM) is added to ensure quality in e.g. 90% or 99% of locations/times. Its value depends on the fading statistics (Rayleigh, log-normal shadowing, etc.).</p>
+  </div>
+
+  <div class="sec">Complete Link Budget — Step-by-Step (GSM Downlink Example)</div>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><p><strong>TX Power:</strong> 30 W = 45 dBm (TX amplifier output power)</p></div>
+    <div class="step"><div class="step-n">2</div><p><strong>TX Antenna Gain:</strong> +10 dBi (directional BS antenna)</p></div>
+    <div class="step"><div class="step-n">3</div><p><strong>Feeder/Combiner Losses:</strong> −5 dB (cable, combiners, connectors)</p></div>
+    <div class="step"><div class="step-n">4</div><p><strong>EIRP = 45 + 10 − 5 = 50 dBm</strong></p></div>
+    <div class="step"><div class="step-n">5</div><p><strong>RX Sensitivity:</strong> −102 dBm (from GSM specification)</p></div>
+    <div class="step"><div class="step-n">6</div><p><strong>Fading Margin:</strong> −12 dB (to ensure quality in 90% of cases)</p></div>
+    <div class="step"><div class="step-n">7</div><p><strong>Required min. mean P_RX = −102 + 12 = −90 dBm</strong></p></div>
+    <div class="step"><div class="step-n">8</div><p><strong>Admissible Path Loss = EIRP − min P_RX = 50 − (−90) = 140 dB</strong></p></div>
+    <div class="step"><div class="step-n">9</div><p><strong>Path loss at d_break = 100 m</strong> (f_c = 950 MHz ≈ 1 GHz): PL = 32 + 0 + 40 = 72 dB (free space at 100 m)</p></div>
+    <div class="step"><div class="step-n">10</div><p><strong>Remaining loss budget beyond breakpoint:</strong> 140 − 72 = 68 dB must equal α·10·log₁₀(d/100)</p></div>
+    <div class="step"><div class="step-n">11</div><p><strong>Coverage distance:</strong> d_cov = 100 × 10^(68/10α) m. For α = 3.5: <em>d_cov ≈ 8.8 km</em></p></div>
+  </div>
+
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 3</div>
+    <p>The link budget is the central engineering tool. Key rule: all quantities in dB, then just add/subtract. The noise floor is always <strong>−174 + 10·log₁₀(B) + NF dBm</strong>. Path loss at 1 m, 1 GHz = 32 dB (memorize this). EIRP = P_TX + G_TX captures effective radiated power. The fading margin converts a "50% quality" design into a "90% or 99% quality" design. UL is often the limiting link due to lower UE TX power and higher UE noise figure.</p>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     CH4 — Propagation Effects
-     ══════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════════
+     CH4 — Propagation Mechanisms
+═══════════════════════════════════════════════ -->
 <div id="ch4" class="chapter ch4">
-  <div class="ch-header">
+  <div class="ch-head">
     <div class="ch-icon">🌐</div>
     <div>
-      <h2>Chapter 4 — Propagation Effects</h2>
-      <div class="ch-sub">Free-space loss (Friis) · Far field · Reflection & transmission · TE/TM waves · Penetration loss · d⁻⁴ law · Diffraction · Fresnel zones · Multi-screen diffraction</div>
-      <div class="ch-obj">🎯 Apply Friis' law · Compute reflection/transmission coefficients · Understand the d⁻⁴ power decay · Model diffraction past obstacles</div>
+      <h2>Module 4 — Propagation Mechanisms & Deterministic Modeling</h2>
+      <div class="sub">Free-space loss · Reflection & transmission (TE/TM) · Penetration loss · d⁻⁴ two-ray law · Diffraction (knife-edge, Fresnel zones) · Scattering (Kirchhoff, perturbation) · Waveguiding · Atmospheric attenuation · Ray tracing</div>
+      <div class="obj">
+        <span class="obj-tag">Apply</span> Friis' law and the two-ray ground reflection model
+        <span class="obj-tag">Compute</span> reflection and transmission coefficients for TE/TM waves
+        <span class="obj-tag">Model</span> diffraction using knife-edge and Fresnel zones
+        <span class="obj-tag">Understand</span> ray tracing as deterministic channel modeling
+      </div>
     </div>
   </div>
 
-  <div class="sec">Why Channel Modelling?</div>
-  <div class="keybox">
-    <div class="kt">Motivation</div>
+  <div class="sec">Six Propagation Mechanisms — The Complete Picture</div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="card-title">☀️ 1. Free-Space Propagation</div>
+      <ul>
+        <li>No obstacles → spherical wave spreading</li>
+        <li>Power falls as <strong>d⁻²</strong> (inverse square law)</li>
+        <li>Friis: P_RX = P_TX·G_TX·G_RX·(λ/4πd)²</li>
+        <li>Valid only in <strong>far field:</strong> d &gt; d_R = 2L_a²/λ</li>
+        <li>Reference for all other losses</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🪞 2. Reflection & Transmission</div>
+      <ul>
+        <li>Wave hits boundary (wall, ground): part reflected, part transmitted</li>
+        <li>Reflection angle = incidence angle (Snell's law)</li>
+        <li>Separate treatment for <strong>TE</strong> (E⊥ to plane) and <strong>TM</strong> (E∥ to plane)</li>
+        <li><strong>Brewster angle:</strong> TM reflection = 0 (total transmission)</li>
+        <li>At grazing incidence: TE reflection ≈ 1, phase inverted</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🏢 3. Transmission Through Walls</div>
+      <ul>
+        <li>Wall = layered dielectric → cascaded reflection+transmission</li>
+        <li>Concrete/steel at 2 GHz: <strong>~20 dB loss</strong></li>
+        <li>Brick/stone at 2 GHz: <strong>~10 dB loss</strong></li>
+        <li>Drywall at 2 GHz: <strong>~3 dB loss</strong></li>
+        <li>At <strong>mm-wave (5G):</strong> concrete/steel up to <strong>60 dB</strong> — essentially impenetrable!</li>
+        <li>Energy-saving windows (metal coating): +40–60 dB at mm-wave</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">↩️ 4. Diffraction (Going Behind Corners)</div>
+      <ul>
+        <li>Waves bend around edges of finite objects (buildings, hills)</li>
+        <li>Based on <strong>Huygens' principle:</strong> every wavefront point = secondary source</li>
+        <li>Explained by Fresnel integral with parameter ν_F</li>
+        <li>Less pronounced as λ decreases (more ray-like at high freq)</li>
+        <li>Critical for coverage behind buildings — the "why urban coverage works"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌀 5. Scattering (Rough Surfaces)</div>
+      <ul>
+        <li>Rough surfaces scatter energy in multiple directions</li>
+        <li>Smooth surface: specular reflection (like mirror)</li>
+        <li>Rough surface: diffuse scattering (Lambertian, single-lobe, double-lobe models)</li>
+        <li><strong>Kirchhoff theory:</strong> effective ρ_rough = ρ_smooth · exp(−2(k₀σ_h sinψ)²)</li>
+        <li>σ_h = surface height deviation, k₀ = 2π/λ</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🌧️ 6. Atmospheric Attenuation</div>
+      <ul>
+        <li>Significant only at <strong>mm-wave and above</strong></li>
+        <li>O₂ absorption peak at <strong>60 GHz</strong> (~10–15 dB/km)</li>
+        <li>H₂O absorption peaks at 22 GHz and 183 GHz</li>
+        <li>5G 57–71 GHz band: high atmospheric loss → short-range only</li>
+        <li>Can be exploited for <strong>frequency reuse</strong> (natural isolation)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">The d⁻⁴ Two-Ray Power Law — When Ground Matters</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">📉 Two-Ray Model (LOS + Ground Reflection)</div>
+      <ul>
+        <li>Scenario: direct LOS path + single ground-reflected path</li>
+        <li>For d ≪ d_break: oscillating pattern (constructive/destructive alternation)</li>
+        <li>For d ≫ d_break: smooth d⁻⁴ decay</li>
+        <li><strong>P_RX ∝ (h_TX · h_RX)² / (λ² · d⁴)</strong></li>
+        <li>Breakpoint: <strong>d_break = 4·h_TX·h_RX / λ</strong></li>
+        <li>Example: h_TX = 30 m, h_RX = 1.5 m, f = 1 GHz → d_break ≈ 600 m</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⚠️ Two Types of Breakpoints (Important Distinction)</div>
+      <ul>
+        <li><strong>d_break (phase):</strong> where direct and reflected waves phase difference = π → first destructive interference</li>
+        <li><strong>d'_break (intersection):</strong> where d⁻² and d⁻⁴ curves intersect numerically</li>
+        <li>These two definitions give similar values but have different physical meanings</li>
+        <li>In practice: α_LBP = 1.5 to 5.5 — not always exactly 4</li>
+        <li>A second breakpoint may exist (beyond radio horizon, α &gt; 6)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Diffraction — Knife-Edge and Fresnel Zones</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🔪 Knife-Edge Diffraction (Single Screen)</div>
+      <ul>
+        <li>Total field: <strong>E = e^(−jk₀x) · F̃(ν_F)</strong> via Fresnel integral</li>
+        <li>Fresnel parameter: <strong>ν_F = −Y·√(2/λx)</strong> or for general geometry:</li>
+        <li>ν_F = θ_d · √(2·d_TX·d_RX / λ(d_TX+d_RX))</li>
+        <li>θ_d = angle between LOS and diffracted ray</li>
+        <li>Diffraction LOSS depends on ν_F: ν_F &lt; 0 → small loss; ν_F &gt; 1 → significant loss</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🥚 Fresnel Zones — Quick Assessment</div>
+      <ul>
+        <li>i-th Fresnel ellipsoid: all reflections add extra path length of i·λ/2</li>
+        <li>Rule: if object does NOT enter the <strong>first Fresnel zone</strong> → negligible diffraction loss</li>
+        <li>Object in 1st Fresnel zone → loss increases rapidly</li>
+        <li>Practical use: check if obstacles clear the 1st Fresnel zone for reliable LOS link</li>
+        <li>1st Fresnel zone radius at midpoint: r₁ = √(λ·d_TX·d_RX/(d_TX+d_RX))</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Multiple Screen Diffraction — Urban Scenarios</div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="card-title">🏙️ Bullington's Method</div>
+      <ul>
+        <li>Replaces all screens with one <strong>equivalent screen</strong></li>
+        <li>Derived from steepest tangents from TX and RX to obstacles</li>
+        <li>Simple: single diffraction calculation</li>
+        <li><strong>Inaccurate</strong>: can be overly optimistic (ignores intermediate obstacles)</li>
+        <li>Total loss: independent of number of screens → wrong functional form</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📐 Epstein–Petersen Method</div>
+      <ul>
+        <li>Each screen computed individually with virtual TX/RX at ends</li>
+        <li>Losses summed logarithmically: <strong>L_tot = L₁ + L₂ + L₃ [dB]</strong></li>
+        <li>Better than Bullington: exponential increase in loss with N screens</li>
+        <li>Limitation: assumes RX is in far field of each screen</li>
+        <li>More accurate for small number of screens</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔬 Method Comparison</div>
+      <ul>
+        <li>Slope diffraction (≤15 screens): <strong>linear increase</strong> in loss — most accurate</li>
+        <li>Modified ITU method: also linear — correct trend</li>
+        <li>Deygout / E-P methods: exponential increase — overestimates for many screens</li>
+        <li>Bullington: independent of N — wrong completely for many screens</li>
+        <li>For 1–3 screens in practice: E-P and Deygout are acceptable</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Deterministic Channel Modeling — Ray Tracing & Launching</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🚀 Ray Launching (Shoot & Bounce)</div>
+      <ul>
+        <li>Launch rays in all directions from TX, trace their paths</li>
+        <li>Follow each ray through reflections, transmissions, diffractions</li>
+        <li>Compute amplitude, delay, DoD, DoA for all rays reaching RX</li>
+        <li>Advantage: <strong>one simulation → all RX positions</strong> in coverage map</li>
+        <li>Ray splitting: keep angular resolution constant — prevents energy spreading</li>
+        <li>Accuracy: 3–6 dB mean error (received power) at 0.5–2.5 GHz</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📍 Ray Tracing (Image Principle)</div>
+      <ul>
+        <li>Find all geometric paths between one TX-RX pair</li>
+        <li>Single reflection: create virtual source (image of TX in reflector)</li>
+        <li>Double reflection: image of image, etc.</li>
+        <li>More accurate but: <strong>one simulation per TX-RX pair</strong></li>
+        <li>Each MPC: amplitude (GTD/UTD coefficients), delay (path length), DoD, DoA, polarization</li>
+        <li>Uses geographic database: indoor (floor plans), urban (LIDAR point clouds)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 4</div>
+    <p>The radio channel is shaped by six mechanisms. The most important are: (1) free-space spreading (d⁻², Friis), (2) ground reflection leading to d⁻⁴ decay beyond the breakpoint, and (3) diffraction enabling coverage behind buildings. Penetration loss at mm-wave (5G) is so severe that new cell architecture (dense small cells, beamforming) is required. Scattering contributes to angular spread (critical for MIMO). Deterministic models (ray tracing) achieve 3–6 dB accuracy but need geographic databases. All MPCs they produce form the basis of the statistical models in Chapter 5.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     CH5 — Statistical Channel Modeling
+═══════════════════════════════════════════════ -->
+<div id="ch5" class="chapter ch5">
+  <div class="ch-head">
+    <div class="ch-icon">📈</div>
+    <div>
+      <h2>Module 5 — Statistical Channel Modeling</h2>
+      <div class="sub">Small-scale vs large-scale fading · Central Limit Theorem derivation · Rayleigh distribution (NLOS) · Rice distribution (LOS) · Nakagami · Doppler spectrum (Jakes) · LCR · Lognormal shadowing</div>
+      <div class="obj">
+        <span class="obj-tag">Derive</span> Rayleigh fading from the CLT — understand it, don't just memorize it
+        <span class="obj-tag">Compute</span> fading margins and outage probabilities
+        <span class="obj-tag">Distinguish</span> Rayleigh, Rice, and Nakagami scenarios
+        <span class="obj-tag">Understand</span> Doppler spectrum and its relation to channel time-variation
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">The Hierarchical Fading Model</div>
+  <div class="insight">
+    <div class="i-title">📖 Three Levels of Signal Variation</div>
     <ul>
-      <li>Performance of a radio system is <strong>ultimately determined by the radio channel</strong></li>
-      <li>Without reliable channel models → impossible to design algorithms, antennas, or systems that work in real environments</li>
-      <li>Channel models are the basis for: <strong>system design, algorithm design, antenna design, simulation</strong></li>
-      <li>The radio channel is more than just a loss — it has behavior in <strong>time, frequency, space, delay, and direction</strong></li>
+      <li><strong>Path Loss:</strong> deterministic decay with distance (d⁻² to d⁻⁴) — scale: km</li>
+      <li><strong>Shadowing (Large-scale fading):</strong> random log-normal variation from obstacles — scale: 10–100 m</li>
+      <li><strong>Small-scale (Fast) fading:</strong> rapid variation from multipath interference — scale: λ/2 ≈ cm</li>
+    </ul>
+    <p>The received power at any point = mean path loss + shadowing deviation + fast fading fluctuation. All three are independent and superimposed.</p>
+  </div>
+
+  <div class="sec">Derivation of Rayleigh Fading — The CLT Argument</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🔄 Step 1 — Many MPCs as Complex Phasors</div>
+      <ul>
+        <li>N incoming waves (MPCs) with amplitudes a_ℓ and random phases φ_ℓ</li>
+        <li>Total received field: <strong>E = Σ a_ℓ · e^(jφ_ℓ)</strong></li>
+        <li>Re(E) = Σ a_ℓ cos(φ_ℓ), Im(E) = Σ a_ℓ sin(φ_ℓ)</li>
+        <li>Each term is a random variable, statistically independent</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 Step 2 — CLT → Gaussian → Rayleigh</div>
+      <ul>
+        <li>No dominant MPC → phases φ_ℓ uniformly distributed in [0,2π]</li>
+        <li>By <strong>Central Limit Theorem:</strong> Re(E) and Im(E) → independent Gaussian N(0,σ²)</li>
+        <li>Amplitude r = |E| = √(Re² + Im²) follows <strong>Rayleigh distribution</strong></li>
+        <li>Phase arg(E) → <strong>uniformly distributed</strong> on [0,2π]</li>
+        <li>This is the fundamental mathematical justification — not just an empirical fit</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Rayleigh Distribution — NLOS Scenario</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">📐 Rayleigh PDF & CDF</div>
+      <ul>
+        <li>PDF: <strong>p(r) = (r/σ²)·exp(−r²/2σ²)</strong> for r ≥ 0</li>
+        <li>CDF: <strong>P(r &lt; r_min) = 1 − exp(−r_min²/2σ²)</strong></li>
+        <li>Mean: E[r] = σ√(π/2) ≈ 1.25σ</li>
+        <li>RMS value: r_rms = σ√2 → <strong>P̄ = E[r²] = 2σ²</strong></li>
+        <li>Variance: Var(r) = (2−π/2)σ² ≈ 0.429σ²</li>
+        <li>Median: r_50 = σ√(2·ln2) ≈ 1.18σ</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🛡️ Fading Margin — Quantitative Derivation</div>
+      <ul>
+        <li>For outage probability x (probability signal is below threshold):</li>
+        <li>P(P &lt; P_min) = 1 − exp(−P_min/P̄) ≈ P_min/P̄ for small x</li>
+        <li>Required mean power: <strong>P̄ = P_min / x</strong></li>
+        <li>Fading margin: <strong>FM = −10·log₁₀(x)</strong> [dB]</li>
+        <li>1% outage (x = 0.01): FM = <strong>20 dB</strong></li>
+        <li>10% outage (x = 0.1): FM = <strong>10 dB</strong></li>
+        <li>0.1% outage (x = 0.001): FM = <strong>30 dB</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Level Below Mean</th><th>Exact Outage Prob.</th><th>Approx (P_min/P̄)</th><th>FM needed for this level</th></tr></thead>
+      <tbody>
+        <tr><td><strong>3 dB (factor 2 below)</strong></td><td>1 − e^(−0.5) ≈ 39.3%</td><td>50%</td><td>3 dB → 50% outage — too high!</td></tr>
+        <tr><td><strong>10 dB (factor 10 below)</strong></td><td>1 − e^(−0.1) ≈ 9.5%</td><td>10%</td><td>10 dB → 10% outage</td></tr>
+        <tr><td><strong>20 dB (factor 100 below)</strong></td><td>1 − e^(−0.01) ≈ 0.995%</td><td>1%</td><td><em>20 dB → ~1% outage</em></td></tr>
+        <tr><td><strong>30 dB (factor 1000 below)</strong></td><td>≈ 0.1%</td><td>0.1%</td><td>30 dB → 0.1% outage</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">Rice Distribution — LOS Scenario</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">☀️ When a Dominant Component Exists</div>
+      <ul>
+        <li>One component has amplitude A (LOS or strong specular reflection)</li>
+        <li>Re(E) ~ N(A, σ²) — non-zero mean; Im(E) ~ N(0, σ²)</li>
+        <li>Amplitude follows <strong>Rice (Rician) distribution</strong></li>
+        <li><strong>K-factor:</strong> K = A²/(2σ²) = LOS power / diffuse power</li>
+        <li>K = 0 → reduces to Rayleigh (NLOS)</li>
+        <li>K → ∞ → approaches AWGN (no fading, all LOS)</li>
+        <li>Typical K: 6–20 dB for indoor LOS environments</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔬 Nakagami Distribution — General Case</div>
+      <ul>
+        <li>More general than Rayleigh/Rice — useful when neither fits exactly</li>
+        <li>Parameter <strong>m</strong> controls fading severity</li>
+        <li>m = 1 → Rayleigh; m = 1/2 → one-sided Gaussian; m → ∞ → AWGN</li>
+        <li>Power P = r² follows a <strong>Gamma distribution</strong></li>
+        <li>Approximation: m ≈ (K+1)²/(2K+1) relates to Rice K-factor</li>
+        <li>Used when the environment cannot be cleanly classified as LOS or NLOS</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Doppler Effects — The Channel in Time</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🏃 Doppler Shift — Single Path</div>
+      <ul>
+        <li>RX moving at speed v at angle γ to wave direction:</li>
+        <li><strong>ν = −f_c · (v/c) · cos(γ)</strong></li>
+        <li>Received frequency: f = f_c + ν</li>
+        <li>Max Doppler: <strong>ν_max = f_c · v / c</strong></li>
+        <li>Numerical examples:</li>
+        <li>5.2 GHz WLAN, v=5 km/h (1.4 m/s): ν_max = <strong>24 Hz</strong></li>
+        <li>GSM 900 MHz, v=110 km/h (30.6 m/s): ν_max = <strong>92 Hz</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 Jakes Doppler Spectrum (Isotropic Scattering)</div>
+      <ul>
+        <li>Waves arrive from all directions uniformly → specific Doppler spectrum shape</li>
+        <li><strong>S_D(ν) = 1.5·Ω̄ / (π·√(ν_max² − ν²))</strong> for |ν| ≤ ν_max</li>
+        <li>U-shaped: most energy near ±ν_max (horizontal wave arrivals have max Doppler)</li>
+        <li>Singularity at ±ν_max (integrable — finite power)</li>
+        <li>Time correlation of channel ↔ Fourier transform of Doppler spectrum</li>
+        <li>Decorrelation distance: ~0.18λ (50% correlation drop) to ~0.38λ (full decorrelation)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Level Crossing Rate & Fading Dip Statistics</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">📉 Level Crossing Rate (LCR)</div>
+      <ul>
+        <li><strong>LCR:</strong> rate at which amplitude crosses a threshold r_th in the upward direction</li>
+        <li>For Rayleigh + Jakes: LCR = √(2π)·ν_max·(r_th/r_rms)·exp(−r_th²/r_rms²)</li>
+        <li>Deep fades: <strong>less frequent</strong> but predictable from this formula</li>
+        <li>Fast-moving UE: more crossings per second, but shorter dip duration</li>
+        <li>Application: error burst analysis, interleaver design</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🏢 Large-Scale Fading — Lognormal Shadowing</div>
+      <ul>
+        <li>Small-scale averaged power follows: S_dB ~ N(0, σ_S²)</li>
+        <li>Field strength in linear scale → <strong>lognormal distribution</strong></li>
+        <li>Shadowing is correlated in space: Gudmundson model</li>
+        <li><strong>R_shad(Δ) = exp(−Δ/d_shad-cor)</strong></li>
+        <li>Correlation distance: d_shad-cor ≈ 10 m (urban) to 100 m (rural)</li>
+        <li>σ_S: 1–4 dB (LOS, indoor) to 6–12 dB (dense urban NLOS)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 5</div>
+    <p>Statistical modeling replaces deterministic ray tracing with probability distributions. The key insight: <strong>many independent MPCs (CLT) → Gaussian complex amplitude → Rayleigh envelope</strong>. This is a derivation, not a postulate. The fading margin formula FM = −10·log₁₀(outage probability) makes the link budget probabilistic. Rice fading (LOS) is less severe than Rayleigh (K &gt; 0 reduces the fading depth). The Doppler spectrum (Jakes U-shape) characterizes how fast the channel changes in time. Large-scale shadowing adds a separate lognormal layer that must also be margined.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     CH6 — Wideband Channel Theory
+═══════════════════════════════════════════════ -->
+<div id="ch6" class="chapter ch6">
+  <div class="ch-head">
+    <div class="ch-icon">🌊</div>
+    <div>
+      <h2>Module 6 — Wideband Channel Theory (WSSUS & System Functions)</h2>
+      <div class="sub">Two-path model · Frequency selectivity · 4 system function representations · Stochastic ACF · WSSUS model · Tapped delay line · Condensed parameters · UWB · Double-directional MIMO channel</div>
+      <div class="obj">
+        <span class="obj-tag">Understand</span> the frequency selectivity of the two-path model
+        <span class="obj-tag">Master</span> the four equivalent system function representations
+        <span class="obj-tag">Apply</span> WSSUS to derive condensed channel parameters
+        <span class="obj-tag">Interpret</span> PDP, RMS delay spread, coherence bandwidth, Doppler spread, coherence time
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">From Narrowband to Wideband — Why We Need a New Framework</div>
+  <div class="insight">
+    <div class="i-title">📖 The Narrowband Assumption Breaks Down</div>
+    <p>In Module 5, we assumed the channel is a single complex gain: y(t) = A(t)·e^(jφ(t))·x(t). This is valid only when all MPCs arrive within one symbol period — the <strong>narrowband (flat-fading) assumption</strong>. When the signal bandwidth is large enough to resolve individual MPCs (wideband), each frequency component sees a different channel gain. We need a much richer mathematical framework.</p>
+  </div>
+
+  <div class="sec">The Two-Path Model — Gateway to Wideband</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">⚡ Channel Impulse Response</div>
+      <ul>
+        <li><strong>h(τ) = a₁δ(τ−τ₁) + a₂δ(τ−τ₂)</strong></li>
+        <li>aₖ = |aₖ|e^(jφₖ): complex amplitude of path k</li>
+        <li>τₖ = dₖ/c₀: delay from path length dₖ</li>
+        <li>Static scenario → LTI channel</li>
+        <li>Transfer function H(f) = FT of h(τ)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 Transfer Function — Frequency-Selective Fading</div>
+      <ul>
+        <li><strong>H(f) = a₁e^(−j2πfτ₁) + a₂e^(−j2πfτ₂)</strong></li>
+        <li>|H(f)|² = |a₁|² + |a₂|² + 2|a₁||a₂|cos(2πfΔτ − Δφ)</li>
+        <li>Oscillates in frequency with period <strong>Δf = 1/Δτ</strong> (notch spacing)</li>
+        <li>Δτ = τ₂ − τ₁: differential delay between paths</li>
+        <li>Example: Δτ = 1 μs → notch every 1 MHz</li>
+        <li><strong>Group delay:</strong> τ_Gr = −(1/2π)·d(arg H)/df → large at fading notches → ISI</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">The Four Equivalent System Descriptions</div>
+  <div class="insight">
+    <div class="i-title">🔄 The Bello System Functions (Fundamental Framework)</div>
+    <p>For a time-variant channel h(t,τ), Fourier transforms can be applied with respect to t (→ Doppler domain ν) and τ (→ frequency domain f), giving four equivalent descriptions. Each provides different physical insight.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Function</th><th>Symbol</th><th>Domain</th><th>Physical Meaning</th><th>Fourier Relation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Time-variant impulse response</strong></td><td>h(t,τ)</td><td>Time ↔ Delay</td><td>Input pulse at delay τ produces output at time t</td><td>Fundamental</td></tr>
+        <tr><td><strong>Time-variant transfer function</strong></td><td>H(t,f)</td><td>Time ↔ Frequency</td><td>Complex gain at time t and frequency f</td><td>FT of h over τ</td></tr>
+        <tr><td><strong>Spreading function</strong></td><td>s(ν,τ)</td><td>Doppler ↔ Delay</td><td>Scatterer distribution in Doppler and delay</td><td>FT of h over t</td></tr>
+        <tr><td><strong>Doppler-variant transfer function</strong></td><td>B(ν,f)</td><td>Doppler ↔ Frequency</td><td>Full time-frequency spreading</td><td>Double FT of h</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">The WSSUS Model — Simplifying the Stochastic Channel</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🎲 From Deterministic to Stochastic</div>
+      <ul>
+        <li>Real channels are stochastic: h(t,τ) is a 2D random process</li>
+        <li>Full description: ACF R_h(t,t';τ,τ') depends on <strong>4 variables</strong> — intractable</li>
+        <li>WSSUS = two simplifying assumptions that reduce 4 → 2 variables</li>
+        <li><strong>WSS (Wide-Sense Stationary):</strong> ACF depends only on time difference Δt = t'−t</li>
+        <li><strong>US (Uncorrelated Scattering):</strong> different delay taps are uncorrelated</li>
+        <li>Together: R_h(t,t';τ,τ') = P_h(Δt,τ)·δ(τ−τ')</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🏗️ Tapped Delay Line (TDL) Model</div>
+      <ul>
+        <li>WSSUS channel → FIR filter with time-varying taps:</li>
+        <li><strong>h(t,τ) = Σ cᵢ(t)·δ(τ−τᵢ)</strong></li>
+        <li>N taps at fixed delays τᵢ (spaced 1/B apart)</li>
+        <li>Each tap cᵢ(t): complex Gaussian process with Doppler spectrum</li>
+        <li>Power of tap i: σᵢ² = P_h(τᵢ) from Power Delay Profile</li>
+        <li>This is the basis for all standardized channel simulation models</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Condensed Channel Parameters — The Essential Five</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Parameter</th><th>Formula</th><th>Physical Meaning</th><th>System Design Implication</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Power Delay Profile (PDP)</strong><br>P_h(τ)</td><td>E_t[|h(t,τ)|²]</td><td>Average power received at delay τ</td><td>Foundation for all other parameters; measured or modeled</td></tr>
+        <tr><td><strong>RMS Delay Spread</strong><br>S_τ</td><td>√(∫P(τ)τ²dτ/P_m − T_m²)</td><td>Temporal spread of arriving MPCs</td><td>ISI severity: if T_s &lt; S_τ → ISI; OFDM CP must be &gt; S_τ</td></tr>
+        <tr><td><strong>Coherence Bandwidth</strong><br>B_c</td><td>B_c ≈ 1/(2π·S_τ) or 1/(5·S_τ)</td><td>Freq range over which channel is flat</td><td>If signal BW &lt; B_c → flat fading (no ISI); if &gt; B_c → frequency selective</td></tr>
+        <tr><td><strong>Doppler Spread</strong><br>B_D = S_ν</td><td>RMS of Doppler spectrum S_D(ν)</td><td>How fast channel varies in time</td><td>If T_s &lt; T_c = 1/B_D → slow fading; pilot spacing must track B_D</td></tr>
+        <tr><td><strong>Coherence Time</strong><br>T_c</td><td>T_c ≈ 1/(2π·ν_max) or 1/B_D</td><td>Time over which channel is approx. constant</td><td>If T_c &gt; T_s → slow fading (one channel estimate per burst)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formula">
+    <span class="f-label">Flat vs Frequency-Selective Fading Criterion</span>
+    Signal BW B ≪ B_c = 1/(5·S_τ)  →  Flat fading (narrowband): no ISI
+    Signal BW B ≫ B_c              →  Frequency-selective: ISI present → need equalization or OFDM
+    <br>
+    <span class="f-label">Slow vs Fast Fading Criterion</span>
+    Symbol duration T_s ≪ T_c = 1/B_D  →  Slow fading: channel constant during symbol
+    Symbol duration T_s ≫ T_c          →  Fast fading: channel changes within one symbol → Doppler equalization needed
+  </div>
+
+  <div class="sec">Double-Directional Channel — For MIMO Systems</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🎯 Beyond SISO: Directional Information</div>
+      <ul>
+        <li>SISO channel h(t,τ): no directional info (antenna effects included)</li>
+        <li>For MIMO: need to separate channel from antenna patterns</li>
+        <li>Double-directional impulse response: <strong>h(t,τ,Ω,Ψ)</strong></li>
+        <li>Ω = Direction of Departure (DoD) from TX</li>
+        <li>Ψ = Direction of Arrival (DoA) at RX</li>
+        <li>Each MPC described by: (aₗ, τₗ, Ωₗ, Ψₗ, νₗ, polarization)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📐 Angular Spread & MIMO Performance</div>
+      <ul>
+        <li><strong>Angular spread (Fleury def.):</strong> RMS of angular power spectrum — avoids ambiguity of circular angle</li>
+        <li>Large angular spread → MPCs arrive from many directions → high MIMO multiplexing gain</li>
+        <li>Small angular spread (LOS) → low MIMO rank → beamforming better than multiplexing</li>
+        <li>MIMO channel matrix H = integral of h(τ,Ω,Ψ)·steering vectors over Ω,Ψ</li>
+        <li>Spatial multiplexing gain limited by min(N_TX, N_RX, #independent paths)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 6</div>
+    <p>Wideband channels require moving from a scalar gain to a full impulse response h(t,τ). The four Bello system functions (h,H,s,B) are all mathematically equivalent — choose based on the problem. WSSUS reduces the intractable 4D ACF to 2D via two physical assumptions (stationarity + uncorrelated delays). The five condensed parameters (PDP, S_τ, B_c, B_D, T_c) are the engineering-relevant summary of any channel. The critical design rule: <strong>OFDM cyclic prefix must exceed S_τ; pilot spacing must track B_D</strong>. For MIMO: angular spread determines spatial multiplexing gain.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     CH7 — Channel Models & Standards
+═══════════════════════════════════════════════ -->
+<div id="ch7" class="chapter ch7">
+  <div class="ch-head">
+    <div class="ch-icon">🗂️</div>
+    <div>
+      <h2>Module 7 — Channel Models & Standardized Profiles</h2>
+      <div class="sub">Location-specific vs stochastic · Pathloss models (FI, CI, Okumura-Hata, COST 231) · Shadowing correlation · TDL delay models · Exponential PDP · Saleh-Valenzuela · Typical delay spreads · Semi-deterministic · 3GPP models</div>
+      <div class="obj">
+        <span class="obj-tag">Select</span> the correct model for each use case (planning vs simulation)
+        <span class="obj-tag">Apply</span> FI and CI pathloss models with parameter fitting
+        <span class="obj-tag">Use</span> standardized 3GPP channel models for simulation
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">Two Paradigms of Channel Modeling</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🗺️ Location-Specific Models (Deterministic)</div>
+      <ul>
+        <li>Purpose: <strong>network planning</strong>, site-specific deployment</li>
+        <li>Based on: geographic database + ray tracing/launching</li>
+        <li>Accuracy: 3–6 dB mean error in received power</li>
+        <li>Inputs: 3D building map, material properties, terrain data</li>
+        <li>Output: coverage map, delay spread map, interference estimate</li>
+        <li>Cost: high computation; requires LIDAR or GIS database</li>
+        <li>Not suitable for: algorithm design or standardized testing</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🎲 Stochastic Models (Statistical)</div>
+      <ul>
+        <li>Purpose: <strong>algorithm design, testing, type approval</strong></li>
+        <li>Based on: measurement campaigns → statistical fitting</li>
+        <li>Location-independent: parameterized for "urban", "indoor", etc.</li>
+        <li>Standardized by: 3GPP, ITU, IEEE — reproducible across all vendors</li>
+        <li>Enables: fair comparison between different implementations</li>
+        <li>Models: TDL (Tapped Delay Line), CDL (Clustered Delay Line)</li>
+        <li>Limitation: may not represent specific deployment accurately</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Pathloss Models — Narrowband (Mean Path Loss)</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Model</th><th>Formula</th><th>Parameters</th><th>Best For</th><th>Limitation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Floating-Intercept (FI)</strong></td><td>PL = α·10log₁₀(d/d₀) + β</td><td>α (slope), β (intercept) — both fitted</td><td>Measurement fitting, any environment</td><td>β not physically motivated; limited extrapolation</td></tr>
+        <tr><td><strong>Close-In (CI)</strong></td><td>PL = α·10log₁₀(d/d₀) + PL_FS(d₀)</td><td>Only α fitted; intercept = free-space</td><td>Cross-frequency comparison</td><td>Assumes free-space reference is valid</td></tr>
+        <tr><td><strong>Breakpoint (BP)</strong></td><td>PL₁ for d ≤ d_break, PL₂ for d &gt; d_break</td><td>α₁, α₂, d_break</td><td>LOS with ground reflection, outdoor macro</td><td>Requires knowing d_break</td></tr>
+        <tr><td><strong>Okumura-Hata</strong></td><td>PL = A + B·log₁₀(d) + C</td><td>A, B, C depend on f, h_BS, h_MS</td><td>Macrocell outdoor (BS above rooftop)</td><td>Only valid for specific height/frequency ranges</td></tr>
+        <tr><td><strong>COST 231-WI</strong></td><td>PL = PL_FS + L_msd + L_rts</td><td>Environment geometry parameters</td><td>Urban outdoor, BS below rooftops</td><td>Assumes grid layout, constant building heights</td></tr>
+        <tr><td><strong>Motley-Keenan</strong></td><td>PL = PL_FS + Σ w_i·n_i [penetration]</td><td>w_i per wall type, n_i = wall count</td><td>Indoor environments</td><td>Ignores diffraction, multipath gain</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">Typical Pathloss Parameters</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Environment</th><th>Condition</th><th>α (path loss exp.)</th><th>σ_S (shadowing std)</th></tr></thead>
+      <tbody>
+        <tr><td>Indoor corridors</td><td>LOS</td><td>1.2 – 1.8</td><td>1 – 3 dB</td></tr>
+        <tr><td>Indoor factory/hall</td><td>LOS</td><td>2.0 – 2.3</td><td>3 – 5 dB</td></tr>
+        <tr><td>Outdoor street canyon</td><td>LOS</td><td>1.5 – 1.8</td><td>2 – 4 dB</td></tr>
+        <tr><td>Outdoor open area</td><td>LOS</td><td>≈ 2.0 (free space)</td><td>2 – 4 dB</td></tr>
+        <tr><td>Urban outdoor</td><td>NLOS</td><td>2.5 – 4.0</td><td>4 – 8 dB</td></tr>
+        <tr><td>Dense urban / high-rise</td><td>NLOS</td><td>3.5 – 5.0</td><td>6 – 12 dB</td></tr>
+        <tr><td>Waveguiding (street canyon)</td><td>LOS-like</td><td>1.5 – 2.0</td><td>2 – 4 dB</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">Delay Dispersion Models</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">📊 Exponential PDP — Standard Model</div>
+      <ul>
+        <li>Single-cluster: <strong>P(τ) = e^(−τ/S_τ)</strong> for τ ≥ 0</li>
+        <li>Captures: one-sided exponential decay of received power vs delay</li>
+        <li>Multi-cluster: sum of delayed exponentials</li>
+        <li>Physical basis: more obstacles with longer paths → more attenuation</li>
+        <li>RMS delay spread S_τ is the single free parameter</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔬 Saleh-Valenzuela (SV) Model</div>
+      <ul>
+        <li>MPCs arrive in <strong>clusters</strong> (not independently)</li>
+        <li>Cluster arrival: Poisson with rate Λ (inter-cluster gaps)</li>
+        <li>Ray arrival within cluster: Poisson with rate λ (intra-cluster gaps)</li>
+        <li>Power: decays exponentially within cluster and cluster-to-cluster</li>
+        <li>Physical cause: clusters = groups of reflectors at similar geometry</li>
+        <li>Standard for UWB (IEEE 802.15.4a) and mmWave 5G channels</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Typical Delay Spread Values (Reference Table)</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Environment</th><th>Typical S_τ</th><th>Maximum S_τ</th><th>Corresponding B_c</th></tr></thead>
+      <tbody>
+        <tr><td>Indoor residential</td><td>5–10 ns</td><td>30 ns</td><td>~20–30 MHz</td></tr>
+        <tr><td>Indoor office (NLOS)</td><td>10–100 ns</td><td>300 ns</td><td>~3–20 MHz</td></tr>
+        <tr><td>Large indoor (factory)</td><td>50–200 ns</td><td>500 ns</td><td>~1–4 MHz</td></tr>
+        <tr><td>Microcell (LOS)</td><td>5–50 ns</td><td>500 ns</td><td>~4 MHz–40 MHz</td></tr>
+        <tr><td>Urban / suburban</td><td>100–800 ns</td><td>3 μs</td><td>~330 kHz–2 MHz</td></tr>
+        <tr><td>Bad urban / hilly terrain</td><td>1–18 μs</td><td>100 μs (clusters)</td><td>&lt;1 MHz</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">Semi-Deterministic Models — Best of Both Worlds</div>
+  <div class="insight">
+    <div class="i-title">🔬 Hybrid Approach (COST 2100, 3GPP Geometry-Based)</div>
+    <ul>
+      <li><strong>D-rays (Deterministic):</strong> computed via simplified ray tracing from large fixed structures (walls, buildings) — strong, specular reflections</li>
+      <li><strong>Cluster MPCs:</strong> around each D-ray, random spread in delay and angle — models diffuse scattering</li>
+      <li><strong>R-rays (Random):</strong> weak random multipaths not derived from geometry — environmental randomness</li>
+      <li>This philosophy: <em>deterministic for predictable, stochastic for unpredictable</em> — captures both accuracy and generality</li>
+      <li>Used in: 3GPP TR 38.901 (5G channel model), COST 2100, WINNER II/+</li>
     </ul>
   </div>
 
-  <div class="sec">Basic Propagation Mechanisms</div>
-  <div class="grid g3">
-    <div class="card">
-      <div class="card-title">🌊 Free-Space Path Loss (Friis)</div>
-      <ul>
-        <li>Received power with isotropic antennas:</li>
-        <li><strong>P_RX = P_TX · G_TX · G_RX · (λ / 4πd)²</strong></li>
-        <li>In dB: P_RX = P_TX + G_TX + G_RX − 20·log₁₀(4πd/λ)</li>
-        <li>Valid only in the <strong>far field</strong> (Rayleigh distance &gt; 2L²/λ)</li>
-        <li>Power decreases as <strong>d⁻²</strong> in free space</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🔁 Reflection & Transmission</div>
-      <ul>
-        <li>When a radio wave hits a material boundary: <strong>reflection, transmission, absorption</strong></li>
-        <li>Must distinguish <strong>TE</strong> (transverse electric) and <strong>TM</strong> (transverse magnetic) waves</li>
-        <li>Reflection angle = angle of incidence (Snell's law)</li>
-        <li><strong>Brewster angle:</strong> TM wave has zero reflection</li>
-        <li>Phase inversion at <strong>grazing angle</strong> for TE polarization</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🏗️ Penetration Loss Through Walls</div>
-      <ul>
-        <li>Transmission through a wall = layered dielectric structure</li>
-        <li>Effective penetration loss is a <strong>function of frequency</strong></li>
-        <li>Strongly depends on <strong>building material</strong></li>
-        <li>Steel concrete & energy-saving windows: high attenuation at 2 GHz</li>
-        <li>Essentially <strong>impenetrable at mm-wave</strong> frequencies (5G)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">The d⁻⁴ Power Law (Two-Ray Model)</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">📉 Two-Ray Ground Reflection</div>
-      <ul>
-        <li>Scenario: direct ray + ground-reflected ray</li>
-        <li>Below breakpoint distance d_break: <strong>oscillatory behavior</strong> (ups and downs)</li>
-        <li>Beyond d_break: power decays as <strong>d⁻⁴</strong> (instead of d⁻² in free space)</li>
-        <li>Breakpoint: d_break = <strong>4·h_TX · h_RX / λ</strong></li>
-      </ul>
-      <div class="formula">P_RX ∝ (h_TX · h_RX)² / d⁴   for d >> d_break</div>
-    </div>
-    <div class="card">
-      <div class="card-title">📐 Log-Scale Path Loss Model</div>
-      <ul>
-        <li>General model: <strong>PL(d) = PL(d₀) + 10n·log₁₀(d/d₀) [dB]</strong></li>
-        <li>n = path loss exponent: 2 (free space), 3.5–4.5 (NLOS urban)</li>
-        <li>d₀ = reference distance (typically 1 m)</li>
-        <li>Smooth decay after the breakpoint (no oscillations in average)</li>
-        <li>Real-world: <strong>n = 1.5–2.5</strong> (LOS), <strong>n = 3.5–4.5</strong> (NLOS)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">Diffraction</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">🏔️ Single-Screen Diffraction</div>
-      <ul>
-        <li>Based on <strong>Huygens' principle:</strong> each point of the wavefront is a source of secondary waves</li>
-        <li>Semi-infinite screen: diffraction field computed from knife-edge model</li>
-        <li><strong>Fresnel zones:</strong> ellipsoidal regions — obstruction of Fresnel zones causes diffraction loss</li>
-        <li>Loss increases rapidly when the obstacle <strong>enters the first Fresnel zone</strong></li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🏙️ Multiple Screens</div>
-      <ul>
-        <li>Urban environments: multiple buildings between TX and RX</li>
-        <li><strong>Bullington's method:</strong> replaces multiple screens with a single equivalent screen</li>
-        <li><strong>Epstein–Peterson method:</strong> considers each screen individually — places virtual TX/RX at screen ends</li>
-        <li>Each screen's diffraction loss computed separately, then summed</li>
-        <li>Causes power to decay <strong>more rapidly than free space</strong></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="keybox">
-    <div class="kt">💡 Key Idea of Chapter 4</div>
-    <p>The radio channel is shaped by <strong>five basic mechanisms</strong>: free-space loss, reflection, transmission, diffraction, and diffuse scattering. Friis' law gives free-space d⁻² decay. The two-ray model predicts d⁻⁴ decay beyond the breakpoint — a much harsher decay. Real-world channels combine all mechanisms. Diffraction over rooftops and walls is critical in urban environments and is modeled using <strong>Fresnel zones</strong> and knife-edge or multi-screen models. All of these mechanisms contribute to the channel impulse response studied in later chapters.</p>
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 7</div>
+    <p>The right model depends on the use case: ray tracing for site-specific planning, stochastic TDL/CDL models for standardized algorithm testing. The pathloss model captures the mean behavior; shadowing (lognormal, σ_S = 4–12 dB) adds slow random variation; the TDL captures delay dispersion. RMS delay spread (5 ns indoor to 18 μs hilly terrain) directly determines whether ISI occurs and how large the OFDM guard interval must be. The 3GPP 5G channel models (TDL-A/B/C, CDL-A/B/C) extend this to mmWave and directional channels for Massive MIMO design.</p>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     CH5 — Statistical Modeling
-     ══════════════════════════════════════ -->
-<div id="ch5" class="chapter ch5">
-  <div class="ch-header">
-    <div class="ch-icon">📈</div>
+
+<!-- ═══════════════════════════════════════════════
+     CH8 — OFDM, CDMA & UWB
+═══════════════════════════════════════════════ -->
+<div id="ch8" class="chapter ch8">
+  <div class="ch-head">
+    <div class="ch-icon">🔗</div>
     <div>
-      <h2>Chapter 5 — Statistical Channel Modeling</h2>
-      <div class="ch-sub">Large-scale vs small-scale · Small-scale fading · Rayleigh distribution · Rice distribution · Fading margin · Outage probability · Shadowing</div>
-      <div class="ch-obj">🎯 Distinguish large-scale from small-scale fading · Derive Rayleigh/Rice distributions · Compute fading margins · Quantify outage probability</div>
+      <h2>Module 8 — Multiple Access Technologies: OFDM · CDMA · UWB</h2>
+      <div class="sub">OFDM principle · CP eliminates ISI · FFT/IFFT implementation · DS-CDMA · Spreading factor · Rake receiver · Near-far problem · Frequency hopping · UWB (TH-IR) · Pulse position modulation</div>
+      <div class="obj">
+        <span class="obj-tag">Understand</span> why OFDM converts a wideband channel into flat-fading subchannels
+        <span class="obj-tag">Explain</span> how CDMA spreading provides interference suppression and multipath diversity
+        <span class="obj-tag">Describe</span> UWB and time-hopping impulse radio for localization
+      </div>
     </div>
   </div>
 
-  <div class="sec">Large-Scale vs Small-Scale Fading</div>
+  <div class="sec">OFDM — The Channel Taming Technology</div>
+  <div class="connect">Used in: LTE (4G), 5G NR, Wi-Fi (802.11a/g/n/ac/ax), DVB-T/T2, ADSL. The dominant wideband modulation standard since 2000s. Directly solves ISI from delay spread.</div>
+
   <div class="grid g2">
     <div class="card">
-      <div class="card-title">📐 Channel Representation</div>
+      <div class="card-title">🎯 Core Problem OFDM Solves</div>
       <ul>
-        <li>Narrowband complex channel: <strong>y(t) = A(t)·exp(jφ(t)) · x(t)</strong></li>
-        <li>Attenuation A(t) and phase φ(t) are what we model statistically</li>
-        <li><strong>Large-scale fading:</strong> path loss + shadowing (slow variation over 10–100 m)</li>
-        <li><strong>Small-scale fading:</strong> multipath interference (rapid variation over λ/2 ≈ cm)</li>
-        <li>Both superimposed on top of each other in received power</li>
+        <li>High data rate → short symbol duration T_s → ISI when T_s &lt; S_τ</li>
+        <li>Equalizer complexity grows as channel gets more frequency-selective</li>
+        <li>OFDM idea: instead of one fast symbol, use <strong>N slow parallel symbols</strong></li>
+        <li>Each subcarrier has long symbol duration: <strong>T_OFDM = N·T_s + T_CP</strong></li>
+        <li>If T_CP &gt; τ_max → no ISI between adjacent OFDM symbols</li>
+        <li>Each subcarrier sees a <strong>flat-fading channel</strong> (simple 1-tap equalizer)</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">🔍 What Causes Small-Scale Fading</div>
+      <div class="card-title">🔢 OFDM Numerical Example</div>
       <ul>
-        <li>Multiple incoming waves with <strong>independent amplitudes and random phases</strong></li>
-        <li>Sum of phasors: Re and Im components are <strong>sums of many i.i.d. components</strong></li>
-        <li>By the <strong>Central Limit Theorem:</strong> Re and Im → independent Gaussian (zero mean)</li>
-        <li>Therefore: amplitude follows a <strong>Rayleigh distribution</strong> (no LOS)</li>
-        <li>Phase is <strong>uniformly distributed</strong> on [0, 2π]</li>
+        <li>Problem: 10 Msymbol/s in urban channel with τ_rms = 250 μs</li>
+        <li>Single carrier: T_s = 100 ns → K = τ_rms/T_s = 2500 interfering symbols!</li>
+        <li>OFDM with N = 2048 subcarriers: T_sub = 2048 × 100 ns = 204.8 μs</li>
+        <li>Add CP: T_CP = 250 μs &gt; τ_max → ISI eliminated completely</li>
+        <li>Each subchannel bandwidth: 1/T_sub ≈ 5 kHz ≪ B_c → flat fading</li>
+        <li>Overhead: T_CP/(T_sub + T_CP) ≈ 55% → significant! Choose N wisely</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec">Rayleigh Fading</div>
   <div class="grid g2">
     <div class="card">
-      <div class="card-title">📊 Rayleigh Distribution</div>
+      <div class="card-title">⚙️ OFDM Modulation — Mathematical Core</div>
       <ul>
-        <li>Valid when: <strong>no dominant LOS component</strong> (NLOS scenario)</li>
-        <li>2D Gaussian tap → amplitude follows <strong>Rayleigh PDF</strong></li>
-        <li>PDF: p(r) = (r/σ²) · exp(−r²/2σ²), r ≥ 0</li>
-        <li>RMS value: r_rms = σ√2</li>
-        <li>Outage probability: Pr(r &lt; r_min) = 1 − exp(−r_min²/r_rms²)</li>
+        <li>OFDM signal: <strong>x(t) = Σ Xₖ·exp(j2πk·t/T_OFDM)</strong>, k = 0,...,N−1</li>
+        <li>Subcarriers are <strong>mutually orthogonal</strong>: ∫ e^(j2πkt/T)·e^(−j2πmt/T) dt = T·δ(k−m)</li>
+        <li>Transmitter: IDFT of frequency-domain symbols → time-domain waveform</li>
+        <li>Receiver: DFT of received waveform → frequency-domain symbols</li>
+        <li>Add CP (copy of last part of IFFT output → prepend to block)</li>
+        <li>Implemented efficiently via <strong>IFFT/FFT</strong> (N log₂N operations vs N² for DFT)</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">🛡️ Fading Margin</div>
+      <div class="card-title">✅ OFDM Pros and Cons</div>
       <ul>
-        <li>Mean received power (link budget) is only guaranteed <strong>50% of the time</strong></li>
-        <li>Must add a <strong>fading margin (FM)</strong> to ensure coverage in e.g. 90% or 99% of locations</li>
-        <li>For 1% outage with Rayleigh fading: FM ≈ <strong>20 dB</strong></li>
-        <li>Derivation: solve Pr(r &lt; r_min) = 0.01 for required r_min → margin = 10·log₁₀(r_rms/r_min)</li>
-        <li>Key insight: Rayleigh fading requires large margins due to deep fading dips</li>
+        <li>✅ <strong>Eliminates ISI</strong> with CP — no equalizer needed per subcarrier</li>
+        <li>✅ <strong>Simple frequency-domain equalization:</strong> divide by H(f_k) per subcarrier</li>
+        <li>✅ <strong>Flexible resource allocation:</strong> assign subcarriers per user (OFDMA)</li>
+        <li>✅ Compatible with MIMO and beamforming</li>
+        <li>❌ <strong>High Peak-to-Average Power Ratio (PAPR):</strong> requires linear PA</li>
+        <li>❌ <strong>Sensitive to frequency offset</strong> (breaks orthogonality) — needs synchronization</li>
+        <li>❌ <strong>CP overhead</strong> reduces spectral efficiency</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec">Rice Fading & Shadowing</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">☀️ Rice Fading (LOS Scenario)</div>
-      <ul>
-        <li>One <strong>dominant LOS component</strong> + many scattered components</li>
-        <li>Amplitude follows <strong>Rice (Rician) distribution</strong></li>
-        <li>K-factor: ratio of LOS power to scattered power (<strong>K = A²/2σ²</strong>)</li>
-        <li>K = 0 → Rayleigh · K → ∞ → AWGN (no fading)</li>
-        <li>Phase: <strong>not uniform</strong> (biased toward LOS direction)</li>
-        <li>Rice fading: <strong>less severe</strong> than Rayleigh (LOS component stabilizes the link)</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🏢 Shadowing (Large-Scale)</div>
-      <ul>
-        <li>Buildings and terrain cause <strong>random amplitude variations</strong> around mean path loss</li>
-        <li>Modeled as <strong>log-normal:</strong> S_dB ~ N(0, σ_S²) where σ_S ≈ 4–10 dB</li>
-        <li>Correlation distance: shadowing is correlated over 10–100 m</li>
-        <li>Combined model: PL_dB(d) = PL̄_dB(d) + S_dB</li>
-        <li>Both fading margin (small-scale) and <strong>shadowing margin</strong> needed in link budget</li>
-      </ul>
-    </div>
-  </div>
+  <div class="sec">Spread Spectrum & CDMA — Sharing the Spectrum with Codes</div>
+  <div class="connect">Spread spectrum intentionally uses more bandwidth than needed. Used in: 3G UMTS/CDMA2000, GPS, military communications, Wi-Fi (2.4 GHz), UWB (IEEE 802.15.4a). Key advantages: interference resistance, multi-user sharing, multipath diversity.</div>
 
-  <div class="sec">Rayleigh Fading with Interference</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">📉 Statistics of Fading Dips</div>
-      <ul>
-        <li>Frequency of fading dips depends on <strong>Doppler frequency</strong> (speed)</li>
-        <li>Length of fading dips depends on vehicle speed and dip depth</li>
-        <li>Fast-moving UE → many short dips; slow-moving → fewer but longer dips</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">📊 SIR Under Rayleigh Fading</div>
-      <ul>
-        <li>Desired signal AND interferer both Rayleigh-faded</li>
-        <li>Probability that instantaneous SIR &lt; 0 dB when mean SIR = 10 dB: computable from ratio of exponential random variables</li>
-        <li>Key result: Rayleigh fading significantly <strong>degrades interference statistics</strong> vs AWGN</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="keybox">
-    <div class="kt">💡 Key Idea of Chapter 5</div>
-    <p>The received signal amplitude is modeled statistically: <strong>Rayleigh</strong> (no LOS, NLOS) or <strong>Rice</strong> (with LOS). Rayleigh fading is the worst case and requires large <strong>fading margins</strong> (≈20 dB for 1% outage). The log-normal <strong>shadowing</strong> adds a separate, slower variation. The link budget must account for both margins. The key mathematical insight is that summing many independent multipath components leads to <strong>Gaussian complex amplitudes</strong> → Rayleigh envelope — a direct consequence of the Central Limit Theorem.</p>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════
-     CH6 — Wideband Channels
-     ══════════════════════════════════════ -->
-<div id="ch6" class="chapter ch6">
-  <div class="ch-header">
-    <div class="ch-icon">🌊</div>
-    <div>
-      <h2>Chapter 6 — Wideband Channels & Mathematical Foundations</h2>
-      <div class="ch-sub">Two-path model · Delay dispersion · Frequency selectivity · System functions · WSSUS model · Delay spread · Coherence bandwidth · Doppler spread · Coherence time · Directional channels</div>
-      <div class="ch-obj">🎯 Model wideband channels via transfer functions · Understand WSSUS · Compute condensed channel parameters</div>
-    </div>
-  </div>
-
-  <div class="sec">From Narrowband to Wideband — The Two-Path Model</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">⚡ Two-Path Channel Impulse Response</div>
-      <ul>
-        <li>Channel impulse response: <strong>h(τ) = a₁δ(τ−τ₁) + a₂δ(τ−τ₂)</strong></li>
-        <li>aₖ = |aₖ|e^(jφₖ) : complex amplitude of path k</li>
-        <li>τₖ = dₖ/c₀ : delay of path k (path length / speed of light)</li>
-        <li>Static environment → channel is <strong>LTI (Linear Time-Invariant)</strong></li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">📊 Transfer Function & Frequency Selectivity</div>
-      <ul>
-        <li>H(f) = Fourier transform of h(τ): <strong>H(f) = a₁e^(−j2πfτ₁) + a₂e^(−j2πfτ₂)</strong></li>
-        <li>|H(f)|² = |a₁|² + |a₂|² + 2|a₁||a₂|cos(2πf·Δτ − Δφ)</li>
-        <li><strong>Frequency-selective fading:</strong> different frequencies experience different gains</li>
-        <li>Notch spacing: <strong>Δf_notch = 1/Δτ</strong> (where Δτ = τ₂ − τ₁)</li>
-        <li>Group delay: τ_Gr = −(1/2π)·d(arg H(f))/df — large at fading dips → ISI</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">General Wideband Channel — System Functions</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">🔄 Four Equivalent Descriptions</div>
-      <ul>
-        <li><strong>1) Time-variant impulse response h(t,τ):</strong> fundamental description</li>
-        <li><strong>2) Time-variant transfer function H(t,f):</strong> Fourier of h over τ</li>
-        <li><strong>3) Spreading function S(ν,τ):</strong> Fourier of h over t → Doppler domain</li>
-        <li><strong>4) Doppler-variant spreading function B(ν,f):</strong> double Fourier transform</li>
-        <li>Due to movement, impulse response <strong>changes with time</strong></li>
-        <li>Y(f) = X(f)·H(f) only valid for <strong>slowly time-varying</strong> channels</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🔁 Delay–Doppler Duality</div>
-      <ul>
-        <li>Mathematical equivalence between frequency variation and time variation:</li>
-        <li>Wideband: H(f) varies with f due to <strong>path delays τₗ</strong> → phase e^(−j2πfτₗ)</li>
-        <li>Narrowband: H(t) varies with t due to <strong>Doppler shifts νₗ</strong> → phase e^(j2πνₗt)</li>
-        <li><strong>Delay ↔ Doppler</strong> duality: same mathematical structure</li>
-        <li>A 2π phase shift occurs over: Δf = 1/τₗ (delay) or Δt = 1/νₗ (Doppler)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">WSSUS Model & Stochastic System Functions</div>
   <div class="grid g3">
     <div class="card">
-      <div class="card-title">📐 WSSUS Assumptions</div>
+      <div class="card-title">📡 Frequency Hopping (FH-SS)</div>
       <ul>
-        <li><strong>WSS:</strong> Wide-Sense Stationary — channel statistics don't change with time</li>
-        <li><strong>US:</strong> Uncorrelated Scattering — different delays are uncorrelated</li>
-        <li>ACF of h(t,τ) depends only on <strong>Δt and τ</strong> (not absolute time t)</li>
-        <li>Most practical channel models assume WSSUS for tractability</li>
+        <li>Carrier frequency changes rapidly per pseudorandom code</li>
+        <li>Signal occupies vulnerable frequency only briefly</li>
+        <li><strong>Slow hopping:</strong> same freq for ≥1 symbol</li>
+        <li><strong>Fast hopping:</strong> multiple hops per symbol</li>
+        <li>Anti-jamming: jammer cannot track hopping pattern</li>
+        <li>Collision design: Hamming distance of hopping sequences minimizes overlap</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">📊 Power Delay Profile</div>
+      <div class="card-title">💻 DS-CDMA (Direct Sequence)</div>
       <ul>
-        <li>P(τ) = ACF of h(t,τ) at Δt = 0 — power as function of delay</li>
-        <li>Shows how received power is distributed <strong>across delay bins</strong></li>
-        <li>Integral of P(τ) = total received power</li>
-        <li>Basis for computing all condensed parameters</li>
+        <li>Info bit (rate R_b) × PN code (rate R_c = M_c·R_b)</li>
+        <li><strong>Spreading factor M_c = R_c/R_b = T_b/T_c</strong></li>
+        <li>Transmitted BW ≈ 1/T_c = M_c/T_b ≫ original BW</li>
+        <li>Receiver: despread by multiplying same code → narrows back to signal BW</li>
+        <li>Narrowband interference gets <strong>spread</strong> → interference becomes noise-like</li>
+        <li>Multiple users: different PN codes → simultaneous sharing</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title">🌐 Directional Channels (MIMO)</div>
+      <div class="card-title">📶 Rake Receiver — Exploiting Multipath</div>
       <ul>
-        <li>For MIMO/multi-antenna: channel depends on <strong>direction of arrival and departure</strong></li>
-        <li>Angular spread: second central moment of angular power spectrum</li>
-        <li>Connection: SISO = integral of MIMO channel over all directions</li>
-        <li>Fleury definition handles <strong>angular ambiguity</strong> due to periodicity</li>
+        <li>PN code with high M_c can resolve individual multipath components!</li>
+        <li>Multiple "fingers" — each correlator tuned to one MPC delay</li>
+        <li>Combine all fingers: <strong>Maximum-Ratio Combining (MRC)</strong></li>
+        <li>Turns multipath (impairment!) into <strong>diversity gain</strong></li>
+        <li>All-Rake (ideal): combine all paths; Selective/Partial Rake: practical</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec">Condensed Channel Parameters</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">🆘 Near-Far Problem — Critical CDMA Issue</div>
+      <ul>
+        <li>Nearby user's signal overwhelms far user at the BS</li>
+        <li>All users transmit on same frequency → mutual interference</li>
+        <li>Solution: <strong>closed-loop uplink power control</strong></li>
+        <li>BS measures received power, sends power-down commands every ms</li>
+        <li>Target: all users arrive at BS with equal power (within ±1 dB)</li>
+        <li>Accuracy requirement: very tight — CDMA capacity collapses without it</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 CDMA Soft Capacity</div>
+      <ul>
+        <li>No hard user limit — interference increases gracefully ("noise rise")</li>
+        <li>System "full" when noise rise ≈ <strong>6 dB</strong> → ~75% of pole capacity</li>
+        <li>Code families: m-sequences (ACF ≈ delta), Gold (many codes, good CCF), Kasami, Walsh-Hadamard (perfectly orthogonal DL)</li>
+        <li>DL: Walsh-Hadamard codes → orthogonal → no intra-cell interference</li>
+        <li>UL: approximately orthogonal → CDMA uplink capacity lower than DL</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">Ultra-Wideband (UWB) — Pulses for Localization</div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-title">⚡ UWB Definition & Properties</div>
+      <ul>
+        <li>Bandwidth: &gt;500 MHz absolute <em>or</em> &gt;20% relative bandwidth</li>
+        <li>Very short pulses → cm-level <strong>time-of-flight ranging</strong></li>
+        <li>Low power spectral density (below noise floor of other systems)</li>
+        <li>High peak-to-average ratio → multiple pulses per symbol needed</li>
+        <li>Applications: indoor localization (phones, cars, Apple AirTag), radar, imaging</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🏓 Time-Hopping Impulse Radio (TH-IR)</div>
+      <ul>
+        <li>Symbol time split into frames T_f; pulse position within frame shifted by code c_j·T_c</li>
+        <li>Multiple pulses per symbol → solves peak-power problem</li>
+        <li>Users assigned different hopping codes → no "catastrophic collision"</li>
+        <li><strong>Coherent detection:</strong> Rake receiver (20+ fingers indoors)</li>
+        <li><strong>Transmitted Reference (TR):</strong> reference pulse + data pulse — simple but 3 dB energy loss</li>
+        <li>Non-coherent energy detection: simplest — but strong MAI sensitivity</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="tbl-wrap">
     <table>
-      <thead><tr><th>Parameter</th><th>Symbol</th><th>Definition</th><th>Significance</th></tr></thead>
+      <thead><tr><th>Technology</th><th>Access Method</th><th>Channel Challenge Addressed</th><th>Generations</th><th>Key Trade-off</th></tr></thead>
       <tbody>
-        <tr><td><strong>RMS Delay Spread</strong></td><td>τ_rms</td><td>√(2nd moment of P(τ))</td><td>Characterizes ISI severity; if τ_rms >> T_s → frequency-selective</td></tr>
-        <tr><td><strong>Coherence Bandwidth</strong></td><td>B_c</td><td>B_c ≈ 1 / (5·τ_rms)</td><td>Bandwidth over which channel is approximately flat; B_s &lt; B_c → flat fading</td></tr>
-        <tr><td><strong>Doppler Spread</strong></td><td>B_D</td><td>Width of Doppler power spectrum</td><td>Characterizes channel time-variation; fast fading if B_D >> 1/T_symbol</td></tr>
-        <tr><td><strong>Coherence Time</strong></td><td>T_c</td><td>T_c ≈ 1 / B_D</td><td>Time over which channel is approximately constant; T_s &lt; T_c → slow fading</td></tr>
-        <tr><td><strong>Angular Spread</strong></td><td>σ_φ</td><td>RMS of angular power distribution</td><td>Key for MIMO spatial multiplexing; large spread → high multiplexing gain</td></tr>
+        <tr><td><strong>FDMA</strong></td><td>Frequency division</td><td>Spectrum sharing</td><td>1G</td><td>Rigid, no multipath solution</td></tr>
+        <tr><td><strong>TDMA</strong></td><td>Time division</td><td>Spectrum sharing</td><td>2G (GSM)</td><td>Needs synchronization</td></tr>
+        <tr><td><strong>DS-CDMA</strong></td><td>Code division</td><td>Multipath diversity (Rake)</td><td>3G (UMTS)</td><td>Near-far, soft capacity</td></tr>
+        <tr><td><strong>OFDM/OFDMA</strong></td><td>Subcarrier assignment</td><td>ISI elimination (CP), freq. select.</td><td>4G LTE, 5G NR, Wi-Fi</td><td>High PAPR, freq. offset sensitivity</td></tr>
+        <tr><td><strong>FH-SS</strong></td><td>Frequency hopping</td><td>Anti-jamming, interference</td><td>Bluetooth, military</td><td>Collision design complexity</td></tr>
+        <tr><td><strong>TH-IR (UWB)</strong></td><td>Pulse time hopping</td><td>Multipath resolution, ranging</td><td>802.15.4a, 802.15.4z</td><td>Complex Rake, low data rate</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="formula">Flat fading condition:   B_signal &lt;&lt; B_c = 1/(5·τ_rms)
-Slow fading condition:   T_symbol &lt;&lt; T_c = 1/B_D
-Frequency selectivity:   B_signal >> B_c  →  different frequencies fade independently</div>
-
-  <div class="keybox">
-    <div class="kt">💡 Key Idea of Chapter 6</div>
-    <p>Wideband channels are described by the <strong>time-variant impulse response h(t,τ)</strong> with four equivalent system function representations. The <strong>WSSUS model</strong> simplifies analysis by assuming stationarity in time and uncorrelated scattering across delays. The four key condensed parameters are: <strong>RMS delay spread</strong> (characterizes ISI), <strong>coherence bandwidth</strong> (frequency range of flat fading), <strong>Doppler spread</strong> (channel time-variation speed), and <strong>coherence time</strong> (how long the channel stays constant). These parameters directly govern the choice of modulation scheme, guard interval (OFDM), and pilot density.</p>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════
-     CH7 — Channel Models
-     ══════════════════════════════════════ -->
-<div id="ch7" class="chapter ch7">
-  <div class="ch-header">
-    <div class="ch-icon">🗂️</div>
-    <div>
-      <h2>Chapter 7 — Channel Models</h2>
-      <div class="ch-sub">Location-specific vs stochastic models · Pathloss models · Floating-intercept model · CI model · LOS/NLOS parameters · Shadowing · Standardized models (CDMA, OFDM) · Tapped-delay-line</div>
-      <div class="ch-obj">🎯 Select the right channel model for each use case · Fit pathloss parameters · Apply standardized models for system simulation</div>
-    </div>
-  </div>
-
-  <div class="sec">Two Types of Channel Models</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">🗺️ Location-Specific Models</div>
-      <ul>
-        <li>Used for <strong>network planning and deployment</strong></li>
-        <li>Rely on detailed <strong>geographic and morphological data</strong></li>
-        <li>Derived from <strong>ray-tracing or ray-launching simulations</strong></li>
-        <li>High accuracy for a specific environment but not generalizable</li>
-        <li>Computationally expensive — not suitable for algorithm design</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🎲 Stochastic Models</div>
-      <ul>
-        <li>Used for <strong>design, testing, and type approval</strong></li>
-        <li>Represent channel impulse response with <strong>a small number of parameters</strong></li>
-        <li><strong>Location-independent</strong> — applicable anywhere of the same environment type</li>
-        <li>Standardized by 3GPP, ITU, IEEE → <strong>reproducibility across implementations</strong></li>
-        <li>Model development is <strong>measurement-based</strong></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">Pathloss Models</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">📐 Floating-Intercept (FI) Model</div>
-      <ul>
-        <li>General log-distance model:</li>
-        <li><strong>PL_dB(d) = α_PL · 10·log₁₀(d/d₀) + β_PL</strong></li>
-        <li>α_PL = slope (path loss exponent)</li>
-        <li>β_PL = path loss at reference distance d₀</li>
-        <li>Both parameters are <strong>fitted from measurements</strong></li>
-        <li>Valid only within the measured distance range</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">📏 Close-In (CI) Model</div>
-      <ul>
-        <li>Sets reference pathloss to the <strong>free-space value</strong>:</li>
-        <li><strong>PL_dB(d) = α_PL,CI · 10·log₁₀(d/d₀) + PL_FS(d₀)</strong></li>
-        <li>Only α is fitted — PL_FS(d₀) is known theoretically</li>
-        <li>Easier comparison across different frequency measurements</li>
-        <li>More physically motivated than the FI model</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">Typical Parameter Ranges</div>
-  <div class="tbl-wrap">
-    <table>
-      <thead><tr><th>Environment</th><th>Condition</th><th>α (path loss exp)</th><th>Shadowing σ_S</th></tr></thead>
-      <tbody>
-        <tr><td>Indoor (corridors)</td><td>LOS</td><td>1.2 – 1.8</td><td>1 – 3 dB</td></tr>
-        <tr><td>Indoor (factory/hall)</td><td>LOS</td><td>2.0 – 2.3</td><td>3 – 5 dB</td></tr>
-        <tr><td>Outdoor (street canyon)</td><td>LOS</td><td>1.5 – 1.8</td><td>2 – 4 dB</td></tr>
-        <tr><td>Outdoor (open area)</td><td>LOS</td><td>≈ 2.0</td><td>2 – 4 dB</td></tr>
-        <tr><td>Urban outdoor</td><td>NLOS</td><td>2.5 – 4.0</td><td>4 – 10 dB</td></tr>
-        <tr><td>Dense urban / high-rise</td><td>NLOS</td><td>3.5 – 5.0</td><td>6 – 12 dB</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sec">Standardized Channel Models</div>
-  <div class="grid g3">
-    <div class="card">
-      <div class="card-title">📡 Tapped-Delay-Line (TDL) Model</div>
-      <ul>
-        <li>Channel modeled as <strong>FIR filter with random tap coefficients</strong></li>
-        <li>Each tap = one resolvable multipath cluster</li>
-        <li>Tap delays: fixed · Tap amplitudes: <strong>random, Rayleigh or Rice</strong></li>
-        <li>Tap powers follow the <strong>Power Delay Profile</strong></li>
-        <li>Each tap time-varies as a narrowband fading process (Jakes model)</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🔊 CDMA / 3G Models</div>
-      <ul>
-        <li>ITU-R and 3GPP defined standardized profiles for 3G system evaluation</li>
-        <li>Typical: <strong>Pedestrian A/B, Vehicular A/B</strong></li>
-        <li>Defined by: tap delays, tap powers, Doppler spectrum shape</li>
-        <li>Used in chip-level simulations for CDMA receiver design</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🌐 OFDM / 4G–5G Models</div>
-      <ul>
-        <li>3GPP defines <strong>CDL (Clustered Delay Line)</strong> and <strong>TDL models</strong></li>
-        <li>CDL models: directional, with clusters of MPCs at specific angles and delays</li>
-        <li>NR (5G) models: cover sub-6 GHz to mmWave bands</li>
-        <li>Basis for all 4G/5G link- and system-level simulations</li>
-        <li>OFDM uses CP length based on max delay spread of model</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">Shadowing Model & Combined Path Loss</div>
-  <div class="grid g2">
-    <div class="card">
-      <div class="card-title">🏢 Log-Normal Shadowing</div>
-      <ul>
-        <li>Total path gain = deterministic mean + random shadowing:</li>
-        <li><strong>PG_dB(d) = P̄G_dB(d) + S_dB</strong></li>
-        <li>S_dB ~ N(0, σ_S²) — Gaussian in dB scale (log-normal in linear)</li>
-        <li>Pathloss = −PG_dB(d)</li>
-        <li>In urban environments: <strong>Manhattan distance</strong> may be more relevant than Euclidean</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">📊 Directional Pathloss</div>
-      <ul>
-        <li>For directional antennas: pathloss depends on <strong>antenna patterns</strong></li>
-        <li>Directional path gain = max received power over all antenna orientations minus antenna gain</li>
-        <li>Essential for <strong>high-frequency (mmWave)</strong> channels where beamforming is needed</li>
-        <li>MIMO: must model pathloss separately per antenna pair (full channel matrix)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="keybox">
-    <div class="kt">💡 Key Idea of Chapter 7</div>
-    <p>Channel models translate propagation physics into usable simulation inputs. Two main types: <strong>location-specific</strong> (ray-tracing, for deployment planning) and <strong>stochastic</strong> (parametric TDL/CDL, for algorithm design and standardized testing). The floating-intercept and CI pathloss models fit measurement data with one or two parameters. Shadowing is always added as a <strong>log-normal random variable</strong> (σ_S ≈ 4–10 dB in urban). For system simulations, standardized models (3GPP TDL-A/B/C, CDL-A/B/C) are essential for reproducible, fair comparison between different implementations and algorithms.</p>
+  <div class="insight">
+    <div class="i-title">💡 Expert Summary of Module 8</div>
+    <p><strong>OFDM</strong> is the dominant solution to ISI: it converts the frequency-selective wideband channel into N flat-fading subchannels, enabling simple per-subcarrier equalization. The CP length must exceed the maximum excess delay. <strong>DS-CDMA</strong> trades bandwidth for interference resistance and turns multipath into diversity via the Rake receiver — but requires strict power control to solve the near-far problem. <strong>UWB</strong> uses sub-nanosecond pulses for cm-scale ranging; TH-IR provides multiple-access UWB with good anti-collision properties. The progression CDMA → OFDMA reflects the trade-off: CDMA excels in interference environments, OFDMA excels in frequency-selective wideband channels with flexible user scheduling.</p>
   </div>
 </div>
 
@@ -949,12 +1732,12 @@ Frequency selectivity:   B_signal >> B_c  →  different frequencies fade indepe
 </div>
 
 <script>
-function show(id,el){
-  document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+function show(id, el) {
+  document.querySelectorAll('.chapter').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   el.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
