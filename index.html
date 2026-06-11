@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +7,16 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   code, pre { font-family: 'Courier New', Courier, monospace; }
-  pre { white-space: pre; overflow-x: auto; font-size: 13px; line-height: 2; }
+  pre {
+    white-space: pre;
+    overflow-x: auto;
+    line-height: 2;
+    /* responsive font‑size */
+    font-size: 12px;
+  }
+  @media (min-width: 640px) {
+    pre { font-size: 13px; }
+  }
 
   .gap {
     display: inline-block;
@@ -24,7 +32,11 @@
     position: relative;
     transition: background 0.1s, border-color 0.1s;
     color: transparent;
-    font-size: 13px;
+    /* same responsive size as pre */
+    font-size: 12px;
+  }
+  @media (min-width: 640px) {
+    .gap { font-size: 13px; }
   }
   .gap::after {
     content: '· · ·';
@@ -36,7 +48,6 @@
     color: #fbbf24;
     white-space: nowrap;
     pointer-events: none;
-    color: #fbbf24;
   }
   .gap.active {
     background: rgba(74,222,128,0.15);
@@ -64,15 +75,15 @@
 </head>
 
 <body class="bg-slate-950 text-slate-300 min-h-screen">
-<div class="max-w-5xl mx-auto px-4 py-8">
+<div class="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
 
   <!-- Header -->
-  <div class="mb-7">
-    <h1 class="text-2xl font-semibold text-white mb-1">Programmation Réseau — Java</h1>
-    <p class="text-slate-500 text-sm mb-4">INT-TIC Oran &nbsp;·&nbsp; Cours PR &nbsp;·&nbsp; Exercices complets</p>
-    <div class="inline-flex items-center gap-3 bg-amber-950/70 border border-amber-700/50 rounded-xl px-4 py-2.5">
+  <div class="mb-6 sm:mb-7">
+    <h1 class="text-xl sm:text-2xl font-semibold text-white mb-1">Programmation Réseau — Java</h1>
+    <p class="text-slate-500 text-xs sm:text-sm mb-4">INT-TIC Oran &nbsp;·&nbsp; Cours PR &nbsp;·&nbsp; Exercices complets</p>
+    <div class="inline-flex items-start sm:items-center gap-2 sm:gap-3 bg-amber-950/70 border border-amber-700/50 rounded-xl px-3 py-2 sm:px-4 sm:py-2.5">
       <span class="text-amber-400 text-lg">☝️</span>
-      <span class="text-amber-200 text-sm">
+      <span class="text-amber-200 text-xs sm:text-sm">
         <strong class="text-amber-300">Maintenir appuyé</strong> sur un blanc
         <span class="text-amber-400 font-bold mx-1">· · ·</span>
         pour révéler la réponse
@@ -81,7 +92,7 @@
   </div>
 
   <!-- Progress bar -->
-  <div class="grid grid-cols-3 gap-3 mb-7">
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-7">
     <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 text-center">
       <div class="text-xl font-semibold text-white" id="total-count">0</div>
       <div class="text-xs text-slate-500 mt-0.5">blancs total</div>
@@ -99,15 +110,15 @@
   <!-- Tabs -->
   <div class="flex gap-2 mb-6 flex-wrap">
     <button onclick="showTab('ex0')" id="tab-ex0"
-      class="tab tab-active px-4 py-2 rounded-lg text-sm font-medium border border-slate-700 bg-slate-800 text-white transition-all">
+      class="tab tab-active px-3 py-2 sm:px-4 rounded-lg text-xs sm:text-sm font-medium border border-slate-700 bg-slate-800 text-white transition-all">
       Ex. 1–2 &nbsp;·&nbsp; Livre
     </button>
     <button onclick="showTab('ex1')" id="tab-ex1"
-      class="tab px-4 py-2 rounded-lg text-sm font-medium border border-slate-800 bg-slate-900 text-slate-400 transition-all hover:text-white hover:bg-slate-800">
+      class="tab px-3 py-2 sm:px-4 rounded-lg text-xs sm:text-sm font-medium border border-slate-800 bg-slate-900 text-slate-400 transition-all hover:text-white hover:bg-slate-800">
       Examen Ex.1 &nbsp;·&nbsp; Etudiant TCP
     </button>
     <button onclick="showTab('ex2')" id="tab-ex2"
-      class="tab px-4 py-2 rounded-lg text-sm font-medium border border-slate-800 bg-slate-900 text-slate-400 transition-all hover:text-white hover:bg-slate-800">
+      class="tab px-3 py-2 sm:px-4 rounded-lg text-xs sm:text-sm font-medium border border-slate-800 bg-slate-900 text-slate-400 transition-all hover:text-white hover:bg-slate-800">
       Examen Ex.2 &nbsp;·&nbsp; Multithreadé + DB
     </button>
   </div>
@@ -119,11 +130,11 @@
   <div id="ex0" class="ex-section space-y-4">
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700 flex items-center justify-between">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700 flex items-center justify-between">
         <span class="text-blue-300 font-mono text-sm font-medium">Livre.java</span>
         <span class="text-slate-500 text-xs">— la classe transmise par le réseau</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Livre <span class="gap" data-answer="implements Serializable"></span> {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Livre <span class="gap" data-answer="implements Serializable"></span> {
     <span class="kw">private</span> String titre;
     <span class="kw">private</span> String auteur;
     <span class="kw">private int</span> annee;
@@ -145,10 +156,10 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-red-300 font-mono text-sm font-medium">Serveur.java</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Serveur {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Serveur {
     <span class="kw">public static void</span> main(String[] args) <span class="gap" data-answer="throws Exception"></span> {
 
         <span class="gap" data-answer="ServerSocket"></span> serveur = <span class="kw">new</span> <span class="gap" data-answer="ServerSocket"></span>(6000);
@@ -169,10 +180,10 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-orange-300 font-mono text-sm font-medium">ClientHandler.java</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> ClientHandler <span class="gap" data-answer="implements Runnable"></span> {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> ClientHandler <span class="gap" data-answer="implements Runnable"></span> {
     <span class="kw">private</span> Socket socket;
 
     <span class="kw">public</span> ClientHandler(Socket socket) {
@@ -200,10 +211,10 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-green-300 font-mono text-sm font-medium">Client.java</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Client {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Client {
     <span class="kw">public static void</span> main(String[] args) <span class="gap" data-answer="throws Exception"></span> {
 
         <span class="gap" data-answer="Socket"></span> socket = <span class="kw">new</span> <span class="gap" data-answer="Socket"></span>(<span class="str">"localhost"</span>, 6000);
@@ -232,10 +243,10 @@
   <div id="ex1" class="ex-section hidden space-y-4">
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-blue-300 font-mono text-sm font-medium">Etudiant.java</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Etudiant <span class="gap" data-answer="implements Serializable"></span> {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Etudiant <span class="gap" data-answer="implements Serializable"></span> {
     <span class="kw">private</span> String nom;
     <span class="kw">private</span> String prenom;
 
@@ -252,10 +263,10 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-red-300 font-mono text-sm font-medium">Server.java</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Server {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Server {
     <span class="kw">public static void</span> main(String[] args) <span class="gap" data-answer="throws IOException"></span> {
 
         <span class="kw">int</span> port = Integer.parseInt(args[<span class="gap" data-answer="0"></span>]);
@@ -280,10 +291,10 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-green-300 font-mono text-sm font-medium">Client.java</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Client {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Client {
     <span class="kw">public static void</span> main(String[] args) <span class="gap" data-answer="throws UnknownHostException, IOException"></span> {
 
         String ip   = args[0];
@@ -303,9 +314,9 @@
     </div>
 
     <!-- Answer box -->
-    <div class="bg-slate-900 border border-green-900/50 rounded-xl p-4">
-      <div class="text-xs text-slate-500 uppercase tracking-widest mb-3 font-semibold">Le client affiche :</div>
-      <div class="flex items-center gap-3">
+    <div class="bg-slate-900 border border-green-900/50 rounded-xl p-3 sm:p-4">
+      <div class="text-xs text-slate-500 uppercase tracking-widest mb-2 sm:mb-3 font-semibold">Le client affiche :</div>
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
         <span class="text-slate-500">→</span>
         <span class="gap text-sm font-mono" data-answer='"Objet reçu : NOM Prénom"'></span>
         <span class="text-slate-600 text-xs italic">(toString() retourne nom + " " + prenom)</span>
@@ -321,11 +332,11 @@
   <div id="ex2" class="ex-section hidden space-y-4">
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700 flex items-center justify-between">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700 flex items-center justify-between">
         <span class="text-blue-300 font-mono text-sm font-medium">Etudiant.java</span>
         <span class="text-slate-500 text-xs">— protocole texte, pas Serializable</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Etudiant {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Etudiant {
     <span class="kw">private</span> String nom;
     <span class="kw">private</span> String prenom;
 
@@ -346,11 +357,11 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-slate-300 font-mono text-sm font-medium">DB.java</span>
         <span class="text-slate-500 text-xs ml-2">— donné, aucun blanc</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> DB {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> DB {
     <span class="kw">public static</span> List&lt;Etudiant&gt; list = <span class="kw">new</span> ArrayList&lt;Etudiant&gt;();
 
     <span class="kw">public static void</span> <span class="fn">persistToDataBase</span>(Etudiant e) {
@@ -366,10 +377,10 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700">
         <span class="text-green-300 font-mono text-sm font-medium">Client.java</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Client {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Client {
     <span class="kw">public static void</span> main(String[] args) <span class="gap" data-answer="throws"></span> UnknownHostException, IOException {
 
         <span class="gap" data-answer="Socket"></span> s = <span class="kw">new</span> <span class="gap" data-answer="Socket"></span>(args[0], 5000);
@@ -394,11 +405,11 @@
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-      <div class="px-4 py-2 bg-slate-800/60 border-b border-slate-700 flex items-center justify-between">
+      <div class="px-3 sm:px-4 py-2 bg-slate-800/60 border-b border-slate-700 flex items-center justify-between">
         <span class="text-red-300 font-mono text-sm font-medium">Server.java</span>
         <span class="text-slate-500 text-xs">— multithreadé avec lambda</span>
       </div>
-<pre class="p-5"><span class="kw">public class</span> Server {
+<pre class="p-3 sm:p-5"><span class="kw">public class</span> Server {
     <span class="kw">public static void</span> main(String[] args) {
         <span class="kw">try</span> {
             <span class="gap" data-answer="ServerSocket"></span> ss = <span class="kw">new</span> <span class="gap" data-answer="ServerSocket"></span>(5000);
@@ -444,9 +455,9 @@
     <!-- Questions -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-      <div class="bg-slate-900 border border-amber-800/30 rounded-xl p-4">
-        <div class="text-amber-400 text-sm font-semibold mb-4">Question 1 — Causes d'exceptions</div>
-        <div class="space-y-3 text-sm">
+      <div class="bg-slate-900 border border-amber-800/30 rounded-xl p-3 sm:p-4">
+        <div class="text-amber-400 text-sm font-semibold mb-3 sm:mb-4">Question 1 — Causes d'exceptions</div>
+        <div class="space-y-3 text-xs sm:text-sm">
           <div class="flex items-start gap-2">
             <span class="text-slate-500 shrink-0 mt-0.5">1.</span>
             <span class="gap" data-answer="IOException — new ServerSocket(5000) : port déjà occupé"></span>
@@ -470,9 +481,9 @@
         </div>
       </div>
 
-      <div class="bg-slate-900 border border-red-800/30 rounded-xl p-4">
-        <div class="text-red-400 text-sm font-semibold mb-4">Question 2 — Variables inutiles</div>
-        <div class="space-y-4 text-sm">
+      <div class="bg-slate-900 border border-red-800/30 rounded-xl p-3 sm:p-4">
+        <div class="text-red-400 text-sm font-semibold mb-3 sm:mb-4">Question 2 — Variables inutiles</div>
+        <div class="space-y-4 text-xs sm:text-sm">
           <div>
             <div class="text-slate-400 text-xs mb-2">Dans <span class="text-green-300 font-mono">Client.java</span> :</div>
             <span class="gap" data-answer="int v — valeur lue mais jamais envoyée au serveur"></span>
@@ -544,3 +555,4 @@ updateStats();
 </script>
 </body>
 </html>
+
